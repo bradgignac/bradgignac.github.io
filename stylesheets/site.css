@@ -1,0 +1,77 @@
+/* line 17, sass/site.scss */
+html,
+body {
+  color: #444;
+  font-family: 'Palatino', 'Georgia', 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 26, sass/site.scss */
+a {
+  color: #999;
+  text-decoration: none;
+}
+
+/* line 31, sass/site.scss */
+article {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 34, sass/site.scss */
+article .content {
+  float: left;
+  width: 550px;
+}
+/* line 39, sass/site.scss */
+article .meta {
+  float: left;
+  margin-left: 50px;
+  width: 200px;
+}
+
+/* line 48, sass/site.scss */
+#header,
+#content,
+#footer {
+  overflow: hidden;
+  *zoom: 1;
+  margin: 0 auto;
+  width: 800px;
+}
+
+/* line 52, sass/site.scss */
+#header {
+  border-bottom: 1px solid #ddd;
+  padding: 25px 0 0;
+}
+
+/* line 57, sass/site.scss */
+#title {
+  float: left;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+/* line 63, sass/site.scss */
+#title a {
+  color: #444;
+}
+
+/* line 68, sass/site.scss */
+#nav {
+  float: right;
+}
+/* line 71, sass/site.scss */
+#nav ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 76, sass/site.scss */
+#nav li {
+  display: inline-block;
+  list-style: none;
+  margin-left: 25px;
+}

@@ -1,0 +1,81 @@
+@import 'compass/css3/background-size';
+@import 'compass/css3/images';
+@import 'compass/utilities/general/clearfix';
+
+@mixin container {
+  @include clearfix;
+  margin: 0 auto;
+  width: 800px;
+}
+
+@mixin grid {
+  @include background-size(50px);
+  @include background(linear-gradient(#ddd 50%, transparent 50%));
+}
+
+html,
+body {
+  color: #444;
+  font-family: 'Palatino', 'Georgia', 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #999;
+  text-decoration: none;
+}
+
+article {
+  @include clearfix;
+
+  .content {
+    float: left;
+    width: 550px;
+  }
+
+  .meta {
+    float: left;
+    margin-left: 50px;
+    width: 200px;
+  }
+}
+
+#header,
+#content,
+#footer {
+  @include container;
+}
+
+#header {
+  border-bottom: 1px solid #ddd;
+  padding: 25px 0 0;
+}
+
+#title {
+  float: left;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: #444;
+  }
+}
+
+#nav {
+  float: right;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 25px;
+  }
+}
