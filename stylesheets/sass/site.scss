@@ -1,22 +1,13 @@
-@import 'compass/css3/background-size';
-@import 'compass/css3/images';
-@import 'compass/utilities/general/clearfix';
-
-@mixin container {
-  @include clearfix;
-  margin: 0 auto;
-  width: 800px;
-}
-
-@mixin grid {
-  @include background-size(50px);
-  @include background(linear-gradient(#ddd 50%, transparent 50%));
-}
+@import "compass/css3/images";
+@import "compass/css3/transition";
+@import "normalize.scss";
+@import "mixins.scss";
+@import "variables.scss";
 
 html,
 body {
-  color: #444;
-  font-family: 'Palatino', 'Georgia', 'Times New Roman', serif;
+  color: #555;
+  font-family: "Palatino", "Georgia", "Times New Roman", serif;
   font-size: 18px;
   line-height: 25px;
   margin: 0;
@@ -24,34 +15,45 @@ body {
 }
 
 a {
-  color: #999;
+  color: #555;
   text-decoration: none;
 }
 
-article {
-  @include clearfix;
-
-  .content {
-    float: left;
-    width: 550px;
-  }
-
-  .meta {
-    float: left;
-    margin-left: 50px;
-    width: 200px;
-  }
-}
-
-#header,
-#content,
-#footer {
-  @include container;
+#wrapper {
+  height: 5px;
+  @include background-image(
+    linear-gradient(
+      left,
+      $blueDarker     8%,
+      $blue           8%,
+      $blue           16%,
+      $blueLighter    16%,
+      $blueLighter    24%,
+      $greenDarker    24%,
+      $greenDarker    32%,
+      $green          32%,
+      $green          41%,
+      $greenLighter   41%,
+      $greenLighter   50%,
+      $orangeDarker   50%,
+      $orangeDarker   59%,
+      $orange         59%,
+      $orange         68%,
+      $orangeLighter  68%,
+      $orangeLighter  76%,
+      $pinkDarker     76%,
+      $pinkDarker     84%,
+      $pink           84%,
+      $pink           92%,
+      $pinkLighter    92%
+    )
+  );
 }
 
 #header {
-  border-bottom: 1px solid #ddd;
-  padding: 25px 0 0;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  @include container;
 }
 
 #title {
@@ -59,10 +61,6 @@ article {
   font-size: 25px;
   margin: 0;
   padding: 0;
-
-  a {
-    color: #444;
-  }
 }
 
 #nav {
@@ -77,5 +75,27 @@ article {
     display: inline-block;
     list-style: none;
     margin-left: 25px;
+  }
+
+  a {
+    display: block;
+    @include transition-property(color);
+    @include transition-duration(0.5s);
+
+    &.about:hover {
+      color: $blue;
+    }
+
+    &.blog:hover {
+      color: $green;
+    }
+
+    &.projects:hover {
+      color: $orange;
+    }
+
+    &.talks:hover {
+      color: $pink;
+    }
   }
 }
