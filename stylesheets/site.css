@@ -628,3 +628,33 @@ a {
 #footer-wrapper {
   background-color: #ccc;
 }
+
+/* line 120, sass/site.scss */
+#footer {
+  overflow: hidden;
+  *zoom: 1;
+  margin: 0 auto;
+  width: 600px;
+}
+
+/* line 124, sass/site.scss */
+#elsewhere {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+/* line 129, sass/site.scss */
+#elsewhere li {
+  display: inline-block;
+}
+
+/* line 134, sass/site.scss */
+#nerdery {
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+/* line 139, sass/site.scss */
+#nerdery li {
+  display: inline-block;
+}
