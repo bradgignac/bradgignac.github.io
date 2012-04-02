@@ -518,25 +518,34 @@ table {
   border-spacing: 0;
 }
 
-/* line 8, sass/site.scss */
+/* line 9, sass/site.scss */
 html,
 body {
   color: #555;
   font-family: "Palatino", "Georgia", "Times New Roman", serif;
   font-size: 18px;
+  height: 100%;
   line-height: 25px;
   margin: 0;
   padding: 0;
 }
 
-/* line 17, sass/site.scss */
+/* line 19, sass/site.scss */
 a {
   color: #555;
   text-decoration: none;
 }
 
-/* line 22, sass/site.scss */
+/* line 24, sass/site.scss */
 #wrapper {
+  height: auto !important;
+  height: 100%;
+  margin: 0 0 -30px;
+  min-height: 100%;
+}
+
+/* line 31, sass/site.scss */
+#rainbow {
   height: 5px;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(8%, #005064), color-stop(8%, #006b87), color-stop(16%, #006b87), color-stop(16%, #007e9e), color-stop(24%, #007e9e), color-stop(24%, #4b6100), color-stop(32%, #4b6100), color-stop(32%, #607c00), color-stop(41%, #607c00), color-stop(41%, #6e8f00), color-stop(50%, #6e8f00), color-stop(50%, #b34f01), color-stop(59%, #b34f01), color-stop(59%, #d65f00), color-stop(68%, #d65f00), color-stop(68%, #f26b00), color-stop(76%, #f26b00), color-stop(76%, #b00049), color-stop(84%, #b00049), color-stop(84%, #d60058), color-stop(92%, #d60058), color-stop(92%, #f40065));
   background-image: -webkit-linear-gradient(left, #005064 8%, #006b87 8%, #006b87 16%, #007e9e 16%, #007e9e 24%, #4b6100 24%, #4b6100 32%, #607c00 32%, #607c00 41%, #6e8f00 41%, #6e8f00 50%, #b34f01 50%, #b34f01 59%, #d65f00 59%, #d65f00 68%, #f26b00 68%, #f26b00 76%, #b00049 76%, #b00049 84%, #d60058 84%, #d60058 92%, #f40065 92%);
@@ -546,17 +555,16 @@ a {
   background-image: linear-gradient(left, #005064 8%, #006b87 8%, #006b87 16%, #007e9e 16%, #007e9e 24%, #4b6100 24%, #4b6100 32%, #607c00 32%, #607c00 41%, #6e8f00 41%, #6e8f00 50%, #b34f01 50%, #b34f01 59%, #d65f00 59%, #d65f00 68%, #f26b00 68%, #f26b00 76%, #b00049 76%, #b00049 84%, #d60058 84%, #d60058 92%, #f40065 92%);
 }
 
-/* line 53, sass/site.scss */
+/* line 62, sass/site.scss */
 #header {
-  padding-top: 50px;
-  padding-bottom: 25px;
+  padding: 25px 0;
   overflow: hidden;
   *zoom: 1;
   margin: 0 auto;
   width: 600px;
 }
 
-/* line 59, sass/site.scss */
+/* line 67, sass/site.scss */
 #title {
   float: left;
   font-size: 25px;
@@ -564,22 +572,22 @@ a {
   padding: 0;
 }
 
-/* line 66, sass/site.scss */
+/* line 74, sass/site.scss */
 #nav {
   float: right;
 }
-/* line 69, sass/site.scss */
+/* line 77, sass/site.scss */
 #nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 74, sass/site.scss */
+/* line 82, sass/site.scss */
 #nav li {
   display: inline-block;
   list-style: none;
   margin-left: 25px;
 }
-/* line 80, sass/site.scss */
+/* line 88, sass/site.scss */
 #nav a {
   display: block;
   -webkit-transition-property: color;
@@ -593,19 +601,30 @@ a {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 85, sass/site.scss */
+/* line 93, sass/site.scss */
 #nav a.about:hover {
   color: #006b87;
 }
-/* line 89, sass/site.scss */
+/* line 97, sass/site.scss */
 #nav a.blog:hover {
   color: #607c00;
 }
-/* line 93, sass/site.scss */
+/* line 101, sass/site.scss */
 #nav a.projects:hover {
   color: #d65f00;
 }
-/* line 97, sass/site.scss */
+/* line 105, sass/site.scss */
 #nav a.talks:hover {
   color: #d60058;
+}
+
+/* line 112, sass/site.scss */
+#footer-wrapper,
+#push {
+  height: 30px;
+}
+
+/* line 116, sass/site.scss */
+#footer-wrapper {
+  background-color: #ccc;
 }

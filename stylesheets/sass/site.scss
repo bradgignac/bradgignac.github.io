@@ -1,3 +1,4 @@
+@import "compass/css3/background-size";
 @import "compass/css3/images";
 @import "compass/css3/transition";
 @import "normalize.scss";
@@ -9,6 +10,7 @@ body {
   color: #555;
   font-family: "Palatino", "Georgia", "Times New Roman", serif;
   font-size: 18px;
+  height: 100%;
   line-height: 25px;
   margin: 0;
   padding: 0;
@@ -20,6 +22,13 @@ a {
 }
 
 #wrapper {
+  height: auto !important;
+  height: 100%;
+  margin: 0 0 -30px;
+  min-height: 100%;
+}
+
+#rainbow {
   height: 5px;
   @include background-image(
     linear-gradient(
@@ -51,8 +60,7 @@ a {
 }
 
 #header {
-  padding-top: 50px;
-  padding-bottom: 25px;
+  padding: 25px 0;
   @include container;
 }
 
@@ -98,4 +106,13 @@ a {
       color: $pink;
     }
   }
+}
+
+#footer-wrapper,
+#push {
+  height: 30px;
+}
+
+#footer-wrapper {
+  background-color: #ccc;
 }
