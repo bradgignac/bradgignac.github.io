@@ -1,1 +1,1 @@
-rvm 1.9.3@bradgignac.github.com --create
+rvm ruby-1.9.3-p327@bradgignac.github.com --create
