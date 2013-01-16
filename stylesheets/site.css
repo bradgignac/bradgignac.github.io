@@ -63,48 +63,45 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 3, ../sass/site.scss */
+/* line 4, ../sass/site.scss */
 body {
-  padding: 40px;
-  color: #444;
+  padding: 100px;
+  color: #333;
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 30px;
 }
 
-/* line 12, ../sass/site.scss */
+/* line 13, ../sass/site.scss */
 a {
   color: #ca3a00;
   text-decoration: none;
-}
-
-/* line 17, ../sass/site.scss */
-a:hover {
-  color: #972b00;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  -ms-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  -ms-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  transition-duration: 0.1s;
 }
 
 /* line 21, ../sass/site.scss */
+a:hover {
+  color: #641d00;
+}
+
+/* line 25, ../sass/site.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 29, ../sass/site.scss */
 .container {
   padding: 0 20px;
   margin: 0 auto;
   width: 600px;
-}
-
-/* line 27, ../sass/site.scss */
-.section {
-  position: relative;
-}
-
-/* line 31, ../sass/site.scss */
-.section-header {
-  position: absolute;
-  left: -240px;
-  width: 200px;
-  text-align: right;
-}
-
-/* line 38, ../sass/site.scss */
-.section + .section {
-  margin-top: 20px;
 }
