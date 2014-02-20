@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sass assets/scss/site.scss assets/stylesheets/site.css \
+  --require bourbon \
+  --require neat
