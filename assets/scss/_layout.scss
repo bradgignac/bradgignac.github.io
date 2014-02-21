@@ -1,0 +1,49 @@
+.layout-wrapper {
+  position: relative;
+}
+
+.layout-header,
+.layout-content,
+.layout-footer {
+  @include outer-container;
+}
+
+.layout-header,
+.layout-footer {
+  padding: 0.5em 0;
+}
+
+.layout-header {
+  margin-bottom: 1px;
+}
+
+.layout-footer {
+  margin-top: 1px;
+}
+
+.layout-header::before,
+.layout-footer::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.layout-header::before {
+  top: 2.5em;
+}
+
+.layout-footer::before {
+  bottom: 2.5em;
+}
+
+.layout-content {
+  margin: 2.0em auto;
+}
+
+.layout-inner {
+  font-size: 0.8em;
+  font-weight: 300;
+}

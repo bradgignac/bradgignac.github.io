@@ -1,1 +1,2 @@
 exclude: ['script', 'CNAME', 'Gemfile', 'Gemfile.lock']
+markdown: kramdown

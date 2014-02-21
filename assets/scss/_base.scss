@@ -1,0 +1,29 @@
+body {
+  color: #444;
+  font-family: $helvetica;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.5em;
+  background-color: #f6f6f6;
+}
+
+a {
+  color: #ca3a00;
+  text-decoration: none;
+
+  @include transition-property(color);
+  @include transition-duration(0.1s);
+}
+
+a:hover {
+  color: darken(#ca3a00, 10%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+}
+
+pre {
+  margin: 0 0.8em;
+  padding: 0.5em 0;
+}
