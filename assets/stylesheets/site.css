@@ -688,13 +688,10 @@ pre {
   padding: 0;
   list-style: none; }
 
-.post-list-date {
+.post-list .post-date {
   margin-right: 20px;
   width: 120px;
   float: left;
-  color: #999;
-  font-size: 0.8em;
-  font-weight: 300px;
   text-align: right; }
 
 .post-header {
@@ -703,7 +700,7 @@ pre {
 .post-date {
   color: #999;
   font-size: 0.8em;
-  text-transform: uppercase; }
+  font-weight: 300; }
 
 .post-title {
   margin: 0; }
