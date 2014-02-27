@@ -5,6 +5,7 @@ layout: base
 <div class="layout-wrapper">
   <section class="layout-content">
     {{content}}
+    {% if site.posts.size > 0 %}
     <hr>
     <ul class="post-list">
     {% for post in site.posts %}
@@ -14,5 +15,6 @@ layout: base
       </li>
     {% endfor %}
     </ul>
+    {% endif %}
   </section>
 </div>
