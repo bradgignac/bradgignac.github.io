@@ -1,5 +1,8 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
-gem 'compass'
-gem 'foreman'
 gem 'jekyll'
+gem 'sass'
+gem 'bourbon'
+gem 'kramdown'
+gem 'neat'
+gem 'normalize-scss'
