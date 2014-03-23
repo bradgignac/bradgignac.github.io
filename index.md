@@ -1,6 +1,6 @@
 ---
 layout: landing
-title: Brad Gignac
+title: Home
 ---
 
 **Hello, my name is Brad Gignac**. I'm a Christian, husband, father, and software
