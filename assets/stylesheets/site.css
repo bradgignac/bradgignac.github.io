@@ -649,6 +649,7 @@ pre {
   padding: 0.5em 0; }
 
 .layout-wrapper {
+  margin: 0 1em;
   position: relative; }
 
 .layout-header,
@@ -696,7 +697,7 @@ pre {
   bottom: 2.5em; }
 
 .layout-content {
-  margin: 2.0em auto; }
+  margin: 1.0em auto; }
 
 .layout-inner {
   font-size: 0.8em;
