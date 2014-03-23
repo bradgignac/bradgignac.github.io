@@ -600,7 +600,7 @@ body {
   color: #444;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5em;
   background-color: #f6f6f6; }
 
@@ -610,15 +610,34 @@ a {
   -webkit-transition-property: color;
   -moz-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.1s;
-  -moz-transition-duration: 0.1s;
-  transition-duration: 0.1s; }
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
 
 a:hover {
   color: #972b00; }
 
 h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0;
   font-weight: 200; }
+
+h1 {
+  font-size: 1.8em; }
+
+h2 {
+  font-size: 1.6em; }
+
+h3 {
+  font-size: 1.4em; }
+
+h4 {
+  font-size: 1.2em; }
+
+h5 {
+  font-size: 1.0em; }
+
+h6 {
+  font-size: 0.8em; }
 
 hr {
   margin: 2.0em 0;
@@ -630,6 +649,7 @@ pre {
   padding: 0.5em 0; }
 
 .layout-wrapper {
+  margin: 0 1em;
   position: relative; }
 
 .layout-header,
@@ -677,7 +697,7 @@ pre {
   bottom: 2.5em; }
 
 .layout-content {
-  margin: 2.0em auto; }
+  margin: 1.0em auto; }
 
 .layout-inner {
   font-size: 0.8em;
