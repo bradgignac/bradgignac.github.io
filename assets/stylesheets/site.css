@@ -686,8 +686,8 @@ pre {
   content: '';
   display: block;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: -1em;
+  right: -1em;
   border-bottom: 1px solid #e0e0e0; }
 
 .layout-header::before {
