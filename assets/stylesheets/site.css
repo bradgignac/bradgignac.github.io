@@ -652,6 +652,17 @@ pre {
   margin: 0 1em;
   position: relative; }
 
+.layout-inner {
+  font-size: 0.8em;
+  font-weight: 300;
+  *zoom: 1;
+  display: block; }
+  .layout-inner:before, .layout-inner:after {
+    content: " ";
+    display: table; }
+  .layout-inner:after {
+    clear: both; }
+
 .layout-header,
 .layout-content,
 .layout-footer {
@@ -675,19 +686,13 @@ pre {
 .layout-footer {
   padding: 0.5em 0; }
 
-.layout-header {
-  margin-bottom: 1px; }
-
-.layout-footer {
-  margin-top: 1px; }
-
 .layout-header::before,
 .layout-footer::before {
   content: '';
   display: block;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: -1em;
+  right: -1em;
   border-bottom: 1px solid #e0e0e0; }
 
 .layout-header::before {
@@ -696,12 +701,45 @@ pre {
 .layout-footer::before {
   bottom: 2.5em; }
 
+.layout-header {
+  margin-bottom: 1px; }
+
+.layout-title {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .layout-title:last-child {
+    margin-right: 0; }
+  .layout-title a {
+    color: #444; }
+  .layout-title a:hover {
+    color: #ca3a00; }
+
+.layout-navigation {
+  text-align: right;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .layout-navigation:last-child {
+    margin-right: 0; }
+
+.layout-footer {
+  margin-top: 1px; }
+
+.layout-social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center; }
+
+.layout-social-link {
+  display: inline;
+  margin: 0 1em; }
+
 .layout-content {
   margin: 1.0em auto; }
-
-.layout-inner {
-  font-size: 0.8em;
-  font-weight: 300; }
 
 .post-list {
   margin: 0;
