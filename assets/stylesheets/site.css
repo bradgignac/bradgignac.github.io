@@ -667,7 +667,7 @@ pre {
 .layout-content,
 .layout-footer {
   *zoom: 1;
-  max-width: 40.625em;
+  max-width: 43.75em;
   margin-left: auto;
   margin-right: auto; }
   .layout-header:before, .layout-header:after,
