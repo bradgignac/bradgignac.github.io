@@ -3,6 +3,13 @@
   position: relative;
 }
 
+.layout-inner {
+  font-size: 0.8em;
+  font-weight: 300;
+
+  @include row;
+}
+
 .layout-header,
 .layout-content,
 .layout-footer {
@@ -16,6 +23,23 @@
 
 .layout-header {
   margin-bottom: 1px;
+}
+
+.layout-title {
+  @include span-columns(6);
+
+  a {
+    color: #444;
+  }
+
+  a:hover {
+    color: #ca3a00;
+  }
+}
+
+.layout-navigation {
+  text-align: right;
+  @include span-columns(6);
 }
 
 .layout-footer {
@@ -42,9 +66,4 @@
 
 .layout-content {
   margin: 1.0em auto;
-}
-
-.layout-inner {
-  font-size: 0.8em;
-  font-weight: 300;
 }
