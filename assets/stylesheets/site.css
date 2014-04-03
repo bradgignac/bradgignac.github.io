@@ -617,6 +617,12 @@ a {
 a:hover {
   color: #972b00; }
 
+blockquote {
+  margin: 1em 0;
+  padding: 0 1em;
+  color: #888;
+  border-left: 3px solid #e0e0e0; }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 1em 0;
   font-weight: 200; }
