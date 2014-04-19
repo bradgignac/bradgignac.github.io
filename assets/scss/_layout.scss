@@ -44,7 +44,7 @@
 }
 
 .layout-title {
-  @include span-columns(6);
+  @include span-columns(9);
 
   a {
     color: #444;
@@ -57,7 +57,7 @@
 
 .layout-navigation {
   text-align: right;
-  @include span-columns(6);
+  @include span-columns(3);
 }
 
 .layout-footer {
