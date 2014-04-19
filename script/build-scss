@@ -1,5 +1,6 @@
 #!/bin/sh
 
 sass assets/scss/site.scss assets/stylesheets/site.css \
+  --style compressed \
   --require bourbon \
   --require neat
