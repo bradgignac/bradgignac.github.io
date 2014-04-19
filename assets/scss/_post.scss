@@ -1,15 +1,33 @@
 .post-list {
-  margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.post-list {
-  .post-date {
-    margin-right: 20px;
-    width: 120px;
-    float: left;
-    text-align: right;
+.post-list-item {
+  margin: 0.2rem 0;
+
+  @include row();
+
+  > .post-date,
+  > .post-title {
+    @include span-columns(12);
+  }
+
+  > .post-date {
+    margin-top: 0.5rem;
+    line-height: 0.8rem;
+  }
+
+  @include media(min-width 600px) {
+    > .post-date {
+      text-align: right;
+
+      @include span-columns(3);
+    }
+
+    > .post-title {
+      @include span-columns(9);
+    }
   }
 }
 
