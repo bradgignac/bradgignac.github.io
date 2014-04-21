@@ -4,31 +4,8 @@
 }
 
 .post-list-item {
-  margin: 0.2rem 0;
-
-  @include row();
-
-  > .post-date,
-  > .post-title {
-    @include span-columns(12);
-  }
-
-  > .post-date {
-    margin-top: 0.5rem;
-    line-height: 0.8rem;
-  }
-
-  @include media(min-width 600px) {
-    > .post-date {
-      text-align: right;
-
-      @include span-columns(3);
-    }
-
-    > .post-title {
-      @include span-columns(9);
-    }
-  }
+  margin: 0.5rem 0;
+  @include row;
 }
 
 .post-header {
@@ -39,6 +16,7 @@
   color: #999;
   font-size: 0.8rem;
   font-weight: 300;
+  line-height: 1rem;
 }
 
 .post-title {
@@ -46,7 +24,6 @@
 }
 
 .post-intro {
-  color: #444;
   font-family: $georgia;
   font-size: 1.4rem;
   line-height: 1.3rem;

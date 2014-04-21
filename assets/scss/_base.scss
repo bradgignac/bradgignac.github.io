@@ -1,22 +1,22 @@
 body {
-  color: #444;
-  font-family: $helvetica;
-  font-weight: 200;
-  font-size: 16px;
-  line-height: 1.5rem;
-  background-color: #f6f6f6;
+  color: $font-color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  background-color: $background-color;
 }
 
 a {
-  color: #ca3a00;
+  color: $link-color;
   text-decoration: none;
 
-  @include transition-property(color);
   @include transition-duration(0.5s);
+  @include transition-property(color);
 }
 
 a:hover {
-  color: darken(#ca3a00, 10%);
+  color: darken($link-color, 10%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,7 +54,7 @@ h6 {
 hr {
   margin: 2.0rem 0;
   border: 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid $border-color;
 }
 
 pre {
