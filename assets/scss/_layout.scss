@@ -7,14 +7,8 @@
 }
 
 .bg-header,
-.bg-content,
 .bg-footer {
-  padding: 0 1rem;
-}
-
-.bg-header,
-.bg-footer {
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
 
   .bg-layout-inner {
     font-size: 0.8rem;
@@ -43,14 +37,31 @@
   }
 }
 
-.bg-content {
-  margin: 1em 0;
-}
-
 .bg-footer {
   border-top: 1px solid $border-color;
 }
 
 .bg-footer-navigation {
   text-align: center;
+}
+
+.bg-content {
+  margin: 1em 0;
+  padding: 0 1rem;
+}
+
+@include media(min-width 480px) {
+  .bg-header-title {
+    @include span-columns(9);
+  }
+
+  .bg-header-navigation {
+    text-align: right;
+    @include span-columns(3);
+  }
+
+  .bg-footer-navigation > li {
+    display: inline;
+    margin: 0 1em;
+  }
 }
