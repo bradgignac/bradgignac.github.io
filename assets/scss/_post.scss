@@ -1,42 +1,44 @@
-.post-list {
+.bg-post-list {
   padding: 0;
   list-style: none;
 }
 
-.post-list-item {
+.bg-post-item {
   margin: 0.5rem 0;
   @include row;
 }
 
-.post-header {
+.bg-post-header {
   margin: 0 0 2.0rem;
 }
 
-.post-date {
+.bg-post-date {
   color: #999;
   font-size: 0.8rem;
   font-weight: 300;
   line-height: 1rem;
 }
 
-.post-title {
+.bg-post-title {
   margin: 0;
 }
 
-.post-intro {
+.bg-post-intro {
   font-family: $georgia;
   font-size: 1.4rem;
   line-height: 1.3rem;
 }
 
 @include media(min-width 480px) {
-  .post-date {
-    margin-top: 0.5em;
-    text-align: right;
-    @include span-columns(3);
-  }
+  .bg-post-item {
+    > .bg-post-date {
+      margin-top: 0.5em;
+      text-align: right;
+      @include span-columns(3);
+    }
 
-  .post-title {
-    @include span-columns(9);
+    > .bg-post-title {
+      @include span-columns(9);
+    }
   }
 }
