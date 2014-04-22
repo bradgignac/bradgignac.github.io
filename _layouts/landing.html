@@ -2,17 +2,21 @@
 layout: base
 ---
 
-<section class="layout-content">
-  {{ content }}
-  {% if site.posts.size > 0 %}
-  <hr>
-  <ul class="post-list">
-  {% for post in site.posts %}
-    <li class="post-list-item">
-      <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
-      <div class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
-    </li>
-  {% endfor %}
-  </ul>
-  {% endif %}
+<section class="bg-content">
+  <div class="bg-layout-outer">
+    <div class="bg-layout-inner">
+      {{ content }}
+      {% if site.posts.size > 0 %}
+      <hr>
+      <ul class="bg-post-list">
+      {% for post in site.posts %}
+        <li class="bg-post-item">
+          <div class="bg-post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+          <div class="bg-post-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+        </li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
 </section>

@@ -2,34 +2,42 @@
 layout: base
 ---
 
-<header class="layout-header">
-  <div class="layout-inner">
-    <div class="layout-title">
-      Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
-    </div>
-    <div class="layout-navigation">
-      <a href="/">Back to Blog &raquo;</a>
+<header class="bg-header">
+  <div class="bg-layout-outer">
+    <div class="bg-layout-inner">
+      <div class="bg-header-title">
+        Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
+      </div>
+      <ul class="bg-header-navigation">
+        <li><a href="/">Back to Blog &raquo;</a></li>
+      </ul>
     </div>
   </div>
 </header>
 
-<section class="layout-content">
-  <article class="post">
-    <header class="post-header">
-      <div class="post-date">{{ page.date | date: "%B %d, %Y" }}</div>
-      <h1 class="post-title">{{ page.title }}</h1>
-    </header>
-    <div class="post-content">{{ content }}</div>
-  </article>
+<section class="bg-content">
+  <div class="bg-layout-outer">
+    <div class="bg-layout-inner">
+      <article class="bg-post">
+        <header class="bg-post-header">
+          <div class="bg-post-date">{{ page.date | date: "%B %d, %Y" }}</div>
+          <h1 class="bg-post-title">{{ page.title }}</h1>
+        </header>
+        <div class="bg-post-content">{{ content }}</div>
+      </article>
+    </div>
+  </div>
 </section>
 
-<footer class="layout-footer">
-  <div class="layout-inner">
-    <ul class="layout-social">
-      <li class="layout-social-link"><a href="https://github.com/bradgignac">GitHub</a></li>
-      <li class="layout-social-link"><a href="https://linkedin.com/in/bradgignac">LinkedIn</a></li>
-      <li class="layout-social-link"><a href="https://speakerdeck.com/bradgignac">Speaker Deck</a></li>
-      <li class="layout-social-link"><a href="https://twitter.com/bradgignac">Twitter</a></li>
-    </ul>
+<footer class="bg-footer">
+  <div class="bg-layout-outer">
+    <div class="bg-layout-inner">
+      <ul class="bg-footer-navigation">
+        <li><a href="https://github.com/bradgignac">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/bradgignac">LinkedIn</a></li>
+        <li><a href="https://speakerdeck.com/bradgignac">Speaker Deck</a></li>
+        <li><a href="https://twitter.com/bradgignac">Twitter</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
