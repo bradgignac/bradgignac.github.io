@@ -1,0 +1,83 @@
+==================================================================
+https://keybase.io/bradgignac
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://bradgignac.com
+  * I am bradgignac (https://keybase.io/bradgignac) on keybase.
+  * I have a public key with fingerprint 1BB0 6A63 A62A F5C3 FD8D  D18A 9F62 E737 BF7A 7DBE
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.3.2"
+        },
+        "key": {
+            "fingerprint": "1bb06a63a62af5c3fd8dd18a9f62e737bf7a7dbe",
+            "host": "keybase.io",
+            "key_id": "9F62E737BF7A7DBE",
+            "uid": "c9c298a2d1fce29aae387154fce8c800",
+            "username": "bradgignac"
+        },
+        "merkle_root": {
+            "ctime": 1399759386,
+            "hash": "1048b03000eab9e49dd13482e73216bf8242bacba4833ea0c6f81994b7afae0e7c57b90ac50c9f89615e2f14a594a863fa68a43519d0371b805a835ccf84fb3c",
+            "seqno": 6769
+        },
+        "service": {
+            "hostname": "bradgignac.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1399759541,
+    "expire_in": 157680000,
+    "prev": "47852f026e046dea9e94ae253979d6ae41d050912e69d181e8f9d30fe6367d20",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+Comment: GPGTools - https://gpgtools.org
+
+owFlkn9QVFUUx1kETcSQbIgGQXzJiELLfb/fJbQkQAcILCA1w/W+9+5bVmB32V2R
+dYVEZ5rBWdPIGinQFAusoUAHScCKX1OOEUkJmgULGEGi/gPjKA72HkNTTv/de8/3
+fO/5nHOOLJ7n5af7IHzyk5rwbzJ1l8dFrwzzqUYXIVpkJxHrIqQ8EzY7tJMZ5WMi
+lsjFThHZsd5kCTdbZKzfaQ+f00QThdhmN1nMqgroaT1FFEdrci1ZMZmN2Ga1mTQv
+ghRFwCGORhyFFFaiFVmQZVJAUOEozNO8qPCIl0WsWuZY7I7HfiVmPQ0mWX2FSRyV
+qOrjk/j1fEJ8ohrbNRuQoERBAVEyqUiYgghhWuBJllFvgiQAoAnt2DaHJNqQbDQZ
+zUjSKs7Httw8bLBZLLPYksOkiUgaQp6FtMCpNSF7jkYBGEEENAAAIxFiBqoMNCNo
+BBTJiYpAMZSIJBExAk1jBCROEUgIGZFHCsIA8xLLixAgiQUSVATIkSymFJJBLGSQ
+wNEK4gTE0CwJZUDzpCgAFgk0K0mKwCgiLakQdlxgthCxHM/BYu1mKzRJWKtaa9v/
+6PSSJV9NstosDotkyVNjOQ6HNVaDdjitmnY3/lI0zNkYRJNZVsf237mSqvTxhrAM
+GU3gIqvJhg0mTcHynNpgALR/cKHqyfACSymA4jBgOBkjiFU8TLE05KHMIcyQMmAB
+JCnMQXUJSCwoUKaBgjma42UK/ItJq3Uio2pp13Acu2yYKC7zXubjpfPzmu/rrS2u
+l9/CJf9s8/fmgJmYFeW/zTQu79121xM0Uv2g3ie082pJf/65QyO/gnMbF3dnfxGU
+Lp4PrFtdWHWpoRoMTyb3LZkMe63I6ns6PmB7zSnCk/Dt87h21F3dAm84F73ssygj
+4WPDfX3qRH1S5HR6e3N7z1PMRt93Q2NcV7pS9k5vcR7f0pzY9Bz3RlX97e8OVD9I
+Lnf73uoO3nMjM5c6qfsj0Nmx6mZBZ8frvmda+sZSXmEld8DIo631rXVdNyOGMq9l
+tPXRSfz1D+vv+711MvVCxMpWKbLfQLSzJ/qaq/3JwSGcGxJGN8zojn09HhdjbOgI
+fiTY9w7psn7K6NmwKmTKVXFxbePC/J8vLCvetmY69qts3LVhImZAsB5b7e/xH3jv
+0yxPrE/iCu7sVuu62vObiiuX0gFlHZ2JmZ6oP8cNC87s6D14ePje4c+zJsvvukO8
+r5RFusz+P5DZUbVX0+9M8zuKJ+JGXJXL591DYbUf+bleeGdUidq0+fdr63rDQ+/U
+zJQ2/VXJPRxq2BzRurbqyNST3aOpZxsknd0dfTnr/dK+tp7bgy9dypTrnijtqDpd
+0Dl8NPlh075DxtBK/8/g2yeigpzPBjhaF9Sl7On2cMFjRdH7W2i3/sWlha8m2W49
+s3Ps4Jq2qZIK83CbZ/7T7vWNJcd/qSnfn3x0+/XAuN0D/Wnx5L6VF98MS6sYFMsn
+fxxIqwrl/wY=
+=VklG
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bradgignac
+
+==================================================================
