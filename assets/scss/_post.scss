@@ -23,12 +23,6 @@
   margin: 0;
 }
 
-.bg-post-intro {
-  font-family: $georgia;
-  font-size: 1.4rem;
-  line-height: 1.3rem;
-}
-
 @include media(min-width 480px) {
   .bg-post-item {
     > .bg-post-date {
