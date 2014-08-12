@@ -3,7 +3,7 @@ layout: post
 title: Intro to CoreOS
 ---
 
-This talk and accompanying demo gives an overview of CoreOS and tools in the 
+This talk and accompanying demo give an overview of CoreOS and tools in the 
 surrounding ecosystem such as Docker, nspawn, etcd, fleet, and vulcand. It also
 provides a working demo of a three-machine CoreOS cluster that uses vulcand to 
 load balance HTTP requests to Docker containers scheduled with fleet. See 
