@@ -19,6 +19,20 @@ a:hover {
   color: darken($link-color, 10%);
 }
 
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-style: italic;
+  background-color: rgba(224, 224, 224, 0.25);
+  border-left: 3px solid $border-color;
+}
+
+blockquote > p {
+  margin: 0;
+  padding: 0;
+}
+
 figcaption {
   margin: 1rem 0 0.2rem;
   color: #999;
