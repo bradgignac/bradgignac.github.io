@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Intro to CoreOS
+tags:
+  - CoreOS
+  - Docker
+  - Vulcand
+  - Distributed Systems
 ---
 
 This talk and accompanying demo give an overview of CoreOS and tools in the 

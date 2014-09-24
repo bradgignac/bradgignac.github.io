@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Sending Email with Python and the Mailgun API
+tags:
+  - Mailgun
+  - Python
 ---
 
 Mailgun makes sending email from code dead simple. In this post, I'll run

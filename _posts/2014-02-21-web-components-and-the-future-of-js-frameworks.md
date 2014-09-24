@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Web Components and the Future of JS Frameworks
+tags:
+  - Tech Talk
+  - JavaScript
+  - Web Components
 ---
 
 ***Edit:** This talk was originally given at Rackspace on February 21, 2014. I

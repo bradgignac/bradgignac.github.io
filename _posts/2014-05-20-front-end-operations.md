@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Front-End Operations
+tags:
+  - HTML
+  - CSS
+  - JavaScript
+  - Operations
 ---
 
 The rise of Javascript frameworks such as Angular, Ember, and Backbone have caused
