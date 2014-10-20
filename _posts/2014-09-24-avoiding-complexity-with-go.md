@@ -22,7 +22,7 @@ cleaned up much of the accidental complexity of software development. Similarly,
 we should be very careful not to burden ourselves with tooling or any technology 
 that unnecessarily increases the amount of accidental complexity with which 
 developers must deal. It becomes more difficult to onboard new developers. Even
-more experienced developers will begin to loose their grasp on the entire 
+more experienced developers will begin to lose their grasp on the entire 
 system. Ultimately, accidental complexity will cripple even the best developers 
 and the highest performing teams.
 
