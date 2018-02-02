@@ -1,2 +1,2 @@
-exclude: ['script', 'CNAME', 'Gemfile', 'Gemfile.lock', 'Procfile']
+exclude: ['script', 'vendor', 'CNAME', 'Gemfile', 'Gemfile.lock', 'Procfile']
 markdown: kramdown
