@@ -5,9 +5,7 @@ title: Home
 
 **Hello, my name is Brad Gignac**. I'm a Christian, husband, father, and software
 developer living and working in the New River Valley. Currently, I work at
-[Rackspace](https://www.rackspace.com) on the [Mailgun](http://mailgun.com) team.
-Previously, I worked on the team building the [Cloud Control Panel](https://mycloud.rackspace.com).
-When I'm not building software, you'll find me spending time with my family,
-exploring the world of craft beer, and enjoying the great outdoors. Visit me
+[Rackspace](https://www.rackspace.com) building tooling that helps our customers manage infrastructure running on [AWS](https://www.rackspace.com/managed-aws), [GCP](https://www.rackspace.com/managed-google-cloud), and [Azure](https://www.rackspace.com/microsoft/managed-azure-cloud). Previously, I spent time working on the [Mailgun](http://mailgun.com) and [Cloud Control Panel](https://mycloud.rackspace.com) teams. When I'm not building software, you'll find me at home with my family,
+enjoying great music, and [cozying up with a good book](/reading-list). Visit me
 elsewhere on [GitHub](https://github.com/bradgignac), [LinkedIn](https://linkedin.com/in/bradgignac),
 [Speaker Deck](https://speakerdeck.com/bradgignac) and [Twitter](https://twitter.com/bradgignac).
