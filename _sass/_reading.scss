@@ -1,0 +1,25 @@
+.bg-reading-list {
+  margin: 1rem 0;
+  border-bottom: 1px solid $border-color;
+}
+
+.bg-reading-list:last-child {
+  border-bottom: 0;
+}
+
+.bg-reading-list-header {
+  margin: 0 0 1rem 1rem;
+  float: right;
+  color: #999;
+  font-style: italic;
+  line-height: 1em;
+}
+
+.bg-reading-list-group {
+  padding: 0;
+}
+
+.bg-reading-list-group-item {
+  line-height: 2.0rem;
+  list-style: none;
+}
