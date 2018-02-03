@@ -6,9 +6,6 @@ tags:
   - Reading
 ---
 
-{% comment %}
-Sort books by `end_date`, then `start_date`, then `name`.
-{% endcomment %}
 {% assign groups = site.books | group_by_exp: 'item', 'item.end_date | date: "%Y"' %}
 
 {% for group in groups %}
