@@ -33,6 +33,10 @@ blockquote > p {
   padding: 0;
 }
 
+figure {
+  margin: 1em 0;
+}
+
 figcaption {
   margin: 1rem 0 0.2rem;
   color: #999;
@@ -82,8 +86,4 @@ hr {
 pre {
   margin: 0 0.8rem;
   padding: 0.5rem 0;
-}
-
-ol, ul {
-  padding: 0;
 }
