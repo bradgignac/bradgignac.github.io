@@ -1,3 +1,16 @@
-exclude: ['script', 'vendor', 'CNAME', 'Gemfile', 'Gemfile.lock', 'Procfile']
+collections: 
+  - books
+  
+exclude:
+  - script
+  - vendor
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - Procfile
+  
 markdown: kramdown
-plugins: ['bourbon', 'neat']
+
+plugins: 
+  - bourbon
+  - neat
