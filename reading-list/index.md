@@ -19,7 +19,12 @@ tags:
     {% assign books = group.items | sort: 'name' | sort: 'start_date' | sort: 'end_date' %}
     <ul class="bg-reading-list-group">
     {% for book in books %}
-      <li class="bg-reading-list-group-item"><a href="{{ book.link }}" target="_blank">{{ book.title }}</a>, by {{ book.author }}</li>
+      <li class="bg-reading-list-group-item">
+        <a href="{{ book.link }}" target="_blank">{{ book.title }}</a>, by {{ book.author }}
+        {% if book.notes %}
+        <small>{{ book.notes }}</small>
+        {% endif %}
+      </li>
     {% endfor %}
     </ul>
   </div>
