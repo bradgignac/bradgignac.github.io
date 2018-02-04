@@ -1,6 +1,6 @@
-collections: 
+collections:
   - books
-  
+
 exclude:
   - script
   - vendor
@@ -8,9 +8,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Procfile
-  
-markdown: kramdown
 
-plugins: 
-  - bourbon
-  - neat
+markdown: kramdown

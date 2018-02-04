@@ -1,12 +1,12 @@
 ---
 ---
 
-@import "bourbon";
+@import "bourbon/bourbon";
 @import "variables";
 
 $max-width: em(700);
 
-@import "neat";
+@import "neat/neat";
 @import "normalize";
 @import "monokai";
 
