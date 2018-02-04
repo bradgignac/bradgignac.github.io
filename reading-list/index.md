@@ -22,7 +22,7 @@ tags:
       <li class="bg-reading-list-group-item">
         <a href="{{ book.link }}" target="_blank">{{ book.title }}</a>, by {{ book.author }}
         {% if book.notes %}
-        <small>{{ book.notes }}</small>
+        <small class="bg-reading-list-group-item-desc">{{ book.notes }}</small>
         {% endif %}
       </li>
     {% endfor %}
