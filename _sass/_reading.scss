@@ -22,10 +22,10 @@
 .bg-reading-list-group-item {
   margin: 0.5rem 0;
   list-style: none;
+}
 
-  > small {
-    margin-left: 0.5rem;
-    color: #666;
-    font-style: italic;
-  }
+.bg-reading-list-group-item-desc {
+  margin-left: 0.5rem;
+  color: #666;
+  font-style: italic;
 }
