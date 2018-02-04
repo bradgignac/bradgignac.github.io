@@ -20,6 +20,12 @@
 }
 
 .bg-reading-list-group-item {
-  line-height: 2.0rem;
+  margin: 0.5rem 0;
   list-style: none;
+
+  > small {
+    margin-left: 0.5rem;
+    color: #666;
+    font-style: italic;
+  }
 }
