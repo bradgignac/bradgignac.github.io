@@ -1,5 +1,5 @@
 ---
-title: INSPIRED: How to Create Tech Products Customers Love
+title: "INSPIRED: How to Create Tech Products Customers Love"
 author: Marty Cagan
 start_date: 2018-04-02
 end_date: ~
