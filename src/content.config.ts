@@ -22,4 +22,18 @@ const books = defineCollection({
   }),
 });
 
-export const collections = { posts, books };
+const hikes = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/hikes" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    alltrails_url: z.url(),
+    distance_miles: z.number().optional(),
+    elevation_gain_feet: z.number().optional(),
+    duration: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    gpx: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, books, hikes };
