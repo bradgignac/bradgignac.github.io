@@ -19,24 +19,40 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     <div class="bg-layout-outer">
       <div class="bg-layout-inner">
         <p>
-          <strong>Hello, my name is Brad Gignac</strong>. I'm a Christian, husband, and father living in beautiful Charlotte, NC. In my spare time, you'll find me spending time with my family, enjoying great music, and <a href="/reading-list">cozying up with a good book</a>. In my professional life, I work as a software developer at <a href="https://www.rackspace.com">Rackspace</a> building tooling that helps our customers manage infrastructure running on <a href="https://www.rackspace.com/managed-aws">AWS</a>, <a href="https://www.rackspace.com/managed-google-cloud">GCP</a>, and <a href="https://www.rackspace.com/microsoft/managed-azure-cloud">Azure</a>. Previously, I spent time working on the <a href="http://mailgun.com">Mailgun</a> and <a href="https://mycloud.rackspace.com">Cloud Control Panel</a> teams. Visit me elsewhere on <a href="https://github.com/bradgignac">GitHub</a>, <a href="https://linkedin.com/in/bradgignac">LinkedIn</a>, <a href="https://speakerdeck.com/bradgignac">Speaker Deck</a> and <a href="https://twitter.com/bradgignac">Twitter</a>.
+          <strong>Hello, my name is Brad Gignac</strong>. I'm a husband and
+          father living in Charlotte, NC. In my spare time, you'll find me
+          spending time with my family, listenting to/playing music, traveling,
+          and exploring the outdoors. In my professional life, I work as a
+          software developer at <a href="https://prosperops.com">ProsperOps</a>.
+          Visit me elsewhere on <a href="https://github.com/bradgignac"
+            >GitHub</a
+          >, <a href="https://linkedin.com/in/bradgignac">LinkedIn</a>, <a
+            href="https://speakerdeck.com/bradgignac">Speaker Deck</a
+          >, <a href="https://www.alltrails.com/members/brad-gignac"
+            >AllTrails</a
+          >, and <a href="https://www.strava.com/athletes/bradgignac">Strava</a
+          >.
         </p>
 
-        {posts.length > 0 && (
-          <>
-            <hr />
-            <ul class="bg-post-list">
-              {posts.map((post) => (
-                <li class="bg-post-item">
-                  <div class="bg-post-date">{dateFormatter.format(post.data.date)}</div>
-                  <div class="bg-post-title">
-                    <a href={`/posts/${post.id}/`}>{post.data.title}</a>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+        {
+          posts.length > 0 && (
+            <>
+              <hr />
+              <ul class="bg-post-list">
+                {posts.map((post) => (
+                  <li class="bg-post-item">
+                    <div class="bg-post-date">
+                      {dateFormatter.format(post.data.date)}
+                    </div>
+                    <div class="bg-post-title">
+                      <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
       </div>
     </div>
   </section>

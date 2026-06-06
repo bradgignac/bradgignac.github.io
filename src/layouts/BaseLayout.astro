@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Christian, Husband, Father, Software Developer" } = Astro.props;
+const { title, description = "Brad Gignac writes about software, traveling, and the outdoors. Based in Charlotte, NC." } = Astro.props;
 const fullTitle = `${title} | Brad Gignac`;
 const gaId = import.meta.env.PUBLIC_GA4_ID;
 ---
