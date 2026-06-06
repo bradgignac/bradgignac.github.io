@@ -11,12 +11,20 @@ body {
 
 a {
   color: $link-color;
-  text-decoration: none;
-  transition: color 0.5s;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.5s, text-decoration-color 0.2s;
 }
 
-a:hover {
-  color: color-mix(in srgb, $link-color, black 10%);
+a:hover,
+a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: none;
 }
 
 blockquote {
