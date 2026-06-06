@@ -1,8 +1,15 @@
 @use "variables" as *;
 
+// flow-root contains children's vertical margins so they don't collapse
+// up into .bg-content (replaces the BFC the old Bourbon clearfix created).
 .bg-layout-outer {
+  display: flow-root;
   max-width: $max-width;
   margin: 0 auto;
+}
+
+.bg-layout-inner {
+  display: flow-root;
 }
 
 .bg-header,

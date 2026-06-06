@@ -32,6 +32,14 @@ for (const [, list] of sortedGroups) {
 }
 ---
 
+<style>
+  /* The h1's own top margin provides the gap from the page header;
+     no need for .bg-content to add its own. */
+  .bg-content {
+    margin-top: 0;
+  }
+</style>
+
 <BaseLayout title="Reading List">
   <header class="bg-header">
     <div class="bg-layout-outer">
