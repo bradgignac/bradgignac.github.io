@@ -1,0 +1,22 @@
+---
+interface Props {
+  showLabel?: boolean;
+}
+
+const { showLabel = false } = Astro.props;
+
+const sections: Array<{ href: string; label: string }> = [
+  { href: "/posts/", label: "Blog" },
+  { href: "/hikes/", label: "Hikes" },
+  { href: "/reading-list/", label: "Reading List" },
+];
+---
+
+<nav class="bg-section-nav">
+  {showLabel && <strong>Sections:</strong>}
+  <ul>
+    {sections.map((section) => (
+      <li><a href={section.href}>{section.label}</a></li>
+    ))}
+  </ul>
+</nav>

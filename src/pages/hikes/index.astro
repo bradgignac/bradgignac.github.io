@@ -1,0 +1,71 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SectionNav from "../../components/SectionNav.astro";
+
+const hikes = (await getCollection("hikes")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "UTC",
+});
+---
+
+<style>
+  /* The h1's own top margin provides the gap from the page header. */
+  .bg-content {
+    margin-top: 0;
+  }
+</style>
+
+<BaseLayout title="Hikes">
+  <header class="bg-header">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <div class="bg-header-title">
+          Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
+        </div>
+        <SectionNav />
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-content">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <h1>Hikes</h1>
+
+        {hikes.length === 0 ? (
+          <p>No hikes yet. Check back soon.</p>
+        ) : (
+          <ul class="bg-post-list">
+            {hikes.map((hike) => (
+              <li class="bg-post-list-item">
+                <div class="bg-post-list-date">
+                  {dateFormatter.format(hike.data.date)}
+                </div>
+                <div class="bg-post-list-title">
+                  <a href={`/hikes/${hike.id}/`}>{hike.data.title}</a>
+                  {hike.data.tags && hike.data.tags.length > 0 && (
+                    <ul class="bg-post-list-tags">
+                      {hike.data.tags.map((tag) => (
+                        <li class="bg-post-list-tag">{tag}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>

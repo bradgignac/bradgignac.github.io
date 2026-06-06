@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import PostList from "../../components/PostList.astro";
+import SectionNav from "../../components/SectionNav.astro";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
@@ -23,9 +24,7 @@ const posts = (await getCollection("posts")).sort(
         <div class="bg-header-title">
           Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
         </div>
-        <ul class="bg-header-navigation">
-          <li><a href="/">Back to Blog &rarr;</a></li>
-        </ul>
+        <SectionNav />
       </div>
     </div>
   </header>

@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from "astro:content";
+import HikeLayout from "../../layouts/HikeLayout.astro";
+
+export async function getStaticPaths() {
+  const hikes = await getCollection("hikes");
+  return hikes.map((hike) => ({
+    params: { slug: hike.id },
+    props: { hike },
+  }));
+}
+
+const { hike } = Astro.props;
+const { Content } = await render(hike);
+---
+
+<HikeLayout
+  title={hike.data.title}
+  date={hike.data.date}
+  alltrails_url={hike.data.alltrails_url}
+  tags={hike.data.tags}
+>
+  <Content />
+</HikeLayout>

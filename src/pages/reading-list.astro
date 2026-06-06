@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import SectionNav from "../components/SectionNav.astro";
 
 const books = await getCollection("books");
 
@@ -47,9 +48,7 @@ for (const [, list] of sortedGroups) {
         <div class="bg-header-title">
           Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
         </div>
-        <ul class="bg-header-navigation">
-          <li><a href="/">Back to Blog &raquo;</a></li>
-        </ul>
+        <SectionNav />
       </div>
     </div>
   </header>
