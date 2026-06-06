@@ -35,6 +35,7 @@ const hikes = defineCollection({
       .regex(/^\d+h \d+m \d+s$/, "Duration must be in the format 'Xh Xm Xs' (e.g., '1h 53m 24s')")
       .optional(),
     tags: z.array(z.string()).optional(),
+    gear: z.array(z.string()).optional(),
     gpx: z.string().optional(),
   }),
 });

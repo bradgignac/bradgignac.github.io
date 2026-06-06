@@ -79,3 +79,30 @@ pre {
   padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
 }
+
+.bg-post-content ul,
+.bg-hike-gear-list {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin: 0 0 0.4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      top: -0.3rem;
+      font-size: 2rem;
+      line-height: 1;
+      color: #666;
+    }
+  }
+}
