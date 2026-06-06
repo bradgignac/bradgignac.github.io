@@ -1,0 +1,67 @@
+@use "variables" as *;
+
+.bg-layout-outer {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.bg-header,
+.bg-footer {
+  padding: 0.5rem 1rem;
+
+  .bg-layout-inner {
+    font-size: 0.8rem;
+  }
+}
+
+.bg-header-navigation,
+.bg-footer-navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bg-header {
+  border-bottom: 1px solid $border-color;
+}
+
+.bg-header-title {
+  a {
+    color: $font-color;
+  }
+
+  a:hover {
+    color: $link-color;
+  }
+}
+
+.bg-footer {
+  border-top: 1px solid $border-color;
+}
+
+.bg-footer-navigation {
+  text-align: center;
+}
+
+.bg-content {
+  margin: 1em 0;
+  padding: 0 1rem;
+}
+
+@media (min-width: $breakpoint-md) {
+  .bg-header .bg-layout-inner {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 0 $gutter;
+    align-items: center;
+  }
+
+  .bg-header-navigation {
+    text-align: right;
+  }
+
+  .bg-footer-navigation > li {
+    display: inline;
+    margin: 0 1em;
+  }
+}

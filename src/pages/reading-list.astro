@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const books = await getCollection("books");
+
+type BookEntry = (typeof books)[number];
+
+const groups = new Map<string, BookEntry[]>();
+for (const book of books) {
+  const year = book.data.end_date
+    ? String(book.data.end_date.getUTCFullYear())
+    : "Currently Reading";
+  if (!groups.has(year)) groups.set(year, []);
+  groups.get(year)!.push(book);
+}
+
+const sortedGroups = Array.from(groups.entries()).sort(([a], [b]) => {
+  if (a === "Currently Reading") return -1;
+  if (b === "Currently Reading") return 1;
+  return b.localeCompare(a);
+});
+
+for (const [, list] of sortedGroups) {
+  list.sort((a, b) => {
+    const aEnd = a.data.end_date?.getTime() ?? 0;
+    const bEnd = b.data.end_date?.getTime() ?? 0;
+    if (aEnd !== bEnd) return bEnd - aEnd;
+    return a.data.start_date.getTime() - b.data.start_date.getTime();
+  });
+}
+---
+
+<BaseLayout title="Reading List">
+  <header class="bg-header">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <div class="bg-header-title">
+          Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
+        </div>
+        <ul class="bg-header-navigation">
+          <li><a href="/">Back to Blog &raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-content">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <h1>Reading List</h1>
+
+        {sortedGroups.map(([year, list]) => (
+          <div class="bg-reading-list">
+            <h2 class="bg-reading-list-header">{year}</h2>
+            <ul class="bg-reading-list-group">
+              {list.map((book) => (
+                <li class="bg-reading-list-group-item">
+                  <a href={book.data.link} target="_blank" rel="noopener">{book.data.title}</a>, by {book.data.author}
+                  {book.data.notes && (
+                    <small class="bg-reading-list-group-item-desc">{book.data.notes}</small>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>

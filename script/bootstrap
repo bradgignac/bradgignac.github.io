@@ -1,6 +1,0 @@
-#!/bin/sh
-
-gem install bundler
-bundle install --path vendor/bundle
-bundle exec bourbon install --path _sass
-bundle exec neat install && mv neat _sass

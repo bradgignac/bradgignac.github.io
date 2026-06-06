@@ -1,0 +1,49 @@
+---
+import "../styles/site.scss";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Christian, Husband, Father, Software Developer" } = Astro.props;
+const fullTitle = `${title} | Brad Gignac`;
+const gaId = import.meta.env.PUBLIC_GA4_ID;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{fullTitle}</title>
+
+    <meta name="author" content="Brad Gignac" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+
+    <link rel="alternate" type="application/rss+xml" title="Brad Gignac" href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {gaId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag("js", new Date());
+          gtag("config", gaId);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
