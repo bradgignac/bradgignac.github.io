@@ -41,11 +41,11 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
               <hr />
               <ul class="bg-post-list">
                 {posts.map((post) => (
-                  <li class="bg-post-item">
-                    <div class="bg-post-date">
+                  <li class="bg-post-list-item">
+                    <div class="bg-post-list-date">
                       {dateFormatter.format(post.data.date)}
                     </div>
-                    <div class="bg-post-title">
+                    <div class="bg-post-list-title">
                       <a href={`/posts/${post.id}/`}>{post.data.title}</a>
                     </div>
                   </li>

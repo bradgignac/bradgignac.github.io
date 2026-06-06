@@ -1,38 +1,54 @@
 @use "variables" as *;
 
+// Post list — used on the home page.
 .bg-post-list {
   padding: 0;
   list-style: none;
 }
 
-.bg-post-item {
-  margin: 0.5rem 0;
+.bg-post-list-item {
+  margin: 0 0 1rem;
 }
 
+.bg-post-list-date {
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.bg-post-list-title {
+  margin: 0;
+}
+
+@media (min-width: 380px) {
+  .bg-post-list-item {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 0 $gutter;
+    align-items: baseline;
+  }
+
+  .bg-post-list-date {
+    text-align: right;
+  }
+}
+
+// Post header — used on individual post pages.
 .bg-post-header {
   margin: 0 0 2rem;
 }
 
 .bg-post-date {
-  color: #999;
-  font-size: 0.8rem;
-  font-weight: 300;
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .bg-post-title {
   margin: 0;
-}
-
-@media (min-width: $breakpoint-md) {
-  .bg-post-item {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 0 $gutter;
-    align-items: baseline;
-
-    > .bg-post-date {
-      margin-top: 0.5rem;
-      text-align: right;
-    }
-  }
 }
