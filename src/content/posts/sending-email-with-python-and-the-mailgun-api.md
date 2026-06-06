@@ -28,7 +28,8 @@ system:
 Now that you have all the necessary prerequisites, let's dive straight into the code:
 
 <figcaption>send-email.py</figcaption>
-{% highlight python %}
+
+```python
 import requests
 
 key = 'YOUR API KEY HERE'
@@ -45,7 +46,7 @@ request = requests.post(request_url, auth=('api', key), data={
 
 print 'Status: {0}'.format(request.status_code)
 print 'Body:   {0}'.format(request.text)
-{% endhighlight %}
+```
 
 If you run the Python script from your terminal, you'll receive an email in just
 a few minutes. This only scratches the surface of what the Mailgun API provides.
@@ -59,7 +60,8 @@ delivered. Mailgun provides the [Events API](http://documentation.mailgun.com/ap
 for exactly this purpose.
 
 <figcaption>list-events.py</figcaption>
-{% highlight python %}
+
+```python
 import requests
 
 key = 'YOUR API KEY HERE'
@@ -70,7 +72,7 @@ request = requests.get(request_url, auth=('api', key), params={'limit': 5})
 
 print 'Status: {0}'.format(request.status_code)
 print 'Body:   {0}'.format(request.text)
-{% endhighlight %}
+```
 
 Run the Python script from your terminal, and you'll see the last five events
 that your emails have generated as they move through the system. In addition to

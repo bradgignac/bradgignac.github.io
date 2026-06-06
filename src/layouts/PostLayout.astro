@@ -1,13 +1,17 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
 interface Props {
   title: string;
   date: Date;
+  tags?: string[];
+  prev?: CollectionEntry<"posts"> | null;
+  next?: CollectionEntry<"posts"> | null;
 }
 
-const { title, date } = Astro.props;
+const { title, date, tags, prev, next } = Astro.props;
 const formattedDate = date.toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
@@ -17,6 +21,7 @@ const formattedDate = date.toLocaleDateString("en-US", {
 ---
 
 <BaseLayout title={title}>
+  <div class="bg-progress-bar" aria-hidden="true"></div>
   <header class="bg-header">
     <div class="bg-layout-outer">
       <div class="bg-layout-inner">
@@ -24,7 +29,7 @@ const formattedDate = date.toLocaleDateString("en-US", {
           Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
         </div>
         <ul class="bg-header-navigation">
-          <li><a href="/">Back to Blog &raquo;</a></li>
+          <li><a href="/">Back to Blog &rarr;</a></li>
         </ul>
       </div>
     </div>
@@ -37,10 +42,34 @@ const formattedDate = date.toLocaleDateString("en-US", {
           <header class="bg-post-header">
             <div class="bg-post-date">{formattedDate}</div>
             <h1 class="bg-post-title">{title}</h1>
+            {tags && tags.length > 0 && (
+              <ul class="bg-post-tags">
+                {tags.map((tag) => <li class="bg-post-tag">{tag}</li>)}
+              </ul>
+            )}
           </header>
           <div class="bg-post-content">
             <slot />
           </div>
+          {(prev || next) && (
+            <nav class="bg-post-nav">
+              {prev && (
+                <a href={`/posts/${prev.id}/`} class="bg-post-nav-link">
+                  <span class="bg-post-nav-label">&larr; Previous</span>
+                  <span class="bg-post-nav-title">{prev.data.title}</span>
+                </a>
+              )}
+              {next && (
+                <a
+                  href={`/posts/${next.id}/`}
+                  class="bg-post-nav-link bg-post-nav-next"
+                >
+                  <span class="bg-post-nav-label">Next &rarr;</span>
+                  <span class="bg-post-nav-title">{next.data.title}</span>
+                </a>
+              )}
+            </nav>
+          )}
         </article>
       </div>
     </div>

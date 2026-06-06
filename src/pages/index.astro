@@ -1,30 +1,29 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PostList from "../components/PostList.astro";
 
-const posts = (await getCollection("posts")).sort(
+const HOME_POST_LIMIT = 5;
+
+const allPosts = (await getCollection("posts")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
-
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-  timeZone: "UTC",
-});
+const posts = allPosts.slice(0, HOME_POST_LIMIT);
+const hasMore = allPosts.length > posts.length;
 ---
 
 <BaseLayout title="Home">
   <section class="bg-content">
     <div class="bg-layout-outer">
       <div class="bg-layout-inner">
+        <h1>Hello, my name is Brad Gignac.</h1>
         <p>
-          <strong>Hello, my name is Brad Gignac</strong>. I'm a husband and
-          father living in Charlotte, NC. In my spare time, you'll find me
-          spending time with my family, listening to/playing music, traveling,
-          and exploring the outdoors. In my professional life, I work as a
-          software developer at <a href="https://prosperops.com">ProsperOps</a>.
-          Visit me elsewhere on <a href="https://github.com/bradgignac"
+          I'm a husband and father living in Charlotte, NC. In my spare time,
+          you'll find me spending time with my family, listening to/playing
+          music, traveling, and exploring the outdoors. In my professional
+          life, I work as a software developer at <a
+            href="https://prosperops.com">ProsperOps</a
+          >. Visit me elsewhere on <a href="https://github.com/bradgignac"
             >GitHub</a
           >, <a href="https://linkedin.com/in/bradgignac">LinkedIn</a>, <a
             href="https://speakerdeck.com/bradgignac">Speaker Deck</a
@@ -38,18 +37,12 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
           posts.length > 0 && (
             <>
               <hr />
-              <ul class="bg-post-list">
-                {posts.map((post) => (
-                  <li class="bg-post-item">
-                    <div class="bg-post-date">
-                      {dateFormatter.format(post.data.date)}
-                    </div>
-                    <div class="bg-post-title">
-                      <a href={`/posts/${post.id}/`}>{post.data.title}</a>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <PostList posts={posts} />
+              {hasMore && (
+                <p class="bg-post-list-more">
+                  <a href="/posts/">All posts &rarr;</a>
+                </p>
+              )}
             </>
           )
         }

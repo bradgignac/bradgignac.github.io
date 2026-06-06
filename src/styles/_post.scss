@@ -1,39 +1,152 @@
 @use "variables" as *;
 
+// Post list — used on the home page.
 .bg-post-list {
   padding: 0;
   list-style: none;
 }
 
-.bg-post-item {
-  margin: 0.5rem 0;
+.bg-post-list-item {
+  margin: 0 0 1rem;
 }
 
+.bg-post-list-date {
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.bg-post-list-title {
+  margin: 0;
+}
+
+.bg-post-list-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bg-post-list-tag {
+  padding: 0 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+  font-size: 0.7rem;
+  font-weight: 400;
+  border-radius: 0.25rem;
+}
+
+.bg-post-list-more {
+  margin: 1rem 0 0;
+  text-align: right;
+  font-size: 0.875rem;
+}
+
+// Scroll progress indicator — a thin rust bar across the top of
+// the viewport that fills as the reader scrolls through a post.
+// Uses CSS scroll-driven animations; gracefully degrades to a
+// static empty bar in browsers without animation-timeline support.
+.bg-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: $link-color;
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 100;
+  animation: bg-progress linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes bg-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (min-width: 380px) {
+  .bg-post-list-item {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 0 $gutter;
+    align-items: baseline;
+  }
+
+  .bg-post-list-date {
+    text-align: right;
+  }
+}
+
+// Post header — used on individual post pages.
 .bg-post-header {
-  margin: 0 0 2.0rem;
+  margin: 0 0 2rem;
 }
 
 .bg-post-date {
-  color: #999;
-  font-size: 0.8rem;
-  font-weight: 300;
-  line-height: 1rem;
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .bg-post-title {
   margin: 0;
 }
 
-@media (min-width: $breakpoint-md) {
-  .bg-post-item {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 0 $gutter;
-    align-items: baseline;
+.bg-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
 
-    > .bg-post-date {
-      margin-top: 0.5em;
-      text-align: right;
-    }
-  }
+.bg-post-tag {
+  padding: 0 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+  font-size: 0.7rem;
+  font-weight: 400;
+  border-radius: 0.25rem;
+}
+
+.bg-post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.bg-post-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+}
+
+.bg-post-nav-next {
+  grid-column: 2;
+  text-align: right;
+}
+
+.bg-post-nav-label {
+  color: #666;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bg-post-nav-title {
+  font-family: $serif-family;
+  font-size: 1.1rem;
+  line-height: 1.3;
 }
