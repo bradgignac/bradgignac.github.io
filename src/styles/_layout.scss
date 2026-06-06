@@ -1,5 +1,21 @@
 @use "variables" as *;
 
+// Sticky footer: body fills the viewport, the content area grows to
+// push .bg-footer down on short pages.
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.bg-content {
+  flex: 1 0 auto;
+}
+
+.bg-footer {
+  flex-shrink: 0;
+}
+
 // flow-root contains children's vertical margins so they don't collapse
 // up into .bg-content (replaces the BFC the old Bourbon clearfix created).
 .bg-layout-outer {
