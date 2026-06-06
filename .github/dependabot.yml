@@ -1,6 +1,4 @@
 version: 2
-
-# Touching this file triggers a Dependabot re-evaluation on merge.
 updates:
   - package-ecosystem: npm
     directory: /
