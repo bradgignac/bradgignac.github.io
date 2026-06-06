@@ -88,3 +88,35 @@
   font-weight: 400;
   border-radius: 0.25rem;
 }
+
+.bg-post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.bg-post-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+}
+
+.bg-post-nav-next {
+  grid-column: 2;
+  text-align: right;
+}
+
+.bg-post-nav-label {
+  color: #666;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bg-post-nav-title {
+  font-family: $serif-family;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
