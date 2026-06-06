@@ -1,0 +1,62 @@
+@use "variables" as *;
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-family: $serif-family;
+  }
+
+  // Drop non-essential chrome.
+  .bg-header,
+  .bg-footer,
+  .bg-post-nav,
+  .bg-post-list-tags,
+  .bg-post-tags {
+    display: none;
+  }
+
+  // Print external URLs alongside the link text. Skip internal
+  // links and #anchors — they're noise on paper.
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    color: #555;
+    font-size: 0.85em;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  // Strip the underline-on-hover/focus mechanics from print.
+  a {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 1px;
+  }
+
+  // Keep figures and quotations together.
+  .bg-post-header,
+  pre,
+  blockquote,
+  figure {
+    break-inside: avoid;
+  }
+
+  // Don't orphan a heading at the bottom of a page.
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+  }
+
+  // Code blocks readable on paper — override Shiki's dark theme.
+  pre {
+    background: #f5f5f5 !important;
+    color: black !important;
+    border: 1px solid #ccc;
+    border-radius: 0;
+  }
+
+  // Figcaption visible on white.
+  figcaption {
+    background: transparent;
+    color: #444;
+  }
+}
