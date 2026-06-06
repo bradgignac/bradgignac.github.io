@@ -30,7 +30,10 @@ const hikes = defineCollection({
     alltrails_url: z.url(),
     distance_miles: z.number().optional(),
     elevation_gain_feet: z.number().optional(),
-    duration: z.string().optional(),
+    duration: z
+      .string()
+      .regex(/^\d+h \d+m \d+s$/, "Duration must be in the format 'Xh Xm Xs' (e.g., '1h 53m 24s')")
+      .optional(),
     tags: z.array(z.string()).optional(),
     gpx: z.string().optional(),
   }),

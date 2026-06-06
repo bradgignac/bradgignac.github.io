@@ -14,14 +14,48 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   timeZone: "UTC",
 });
----
+const numberFormatter = new Intl.NumberFormat("en-US");
 
-<style>
-  /* The h1's own top margin provides the gap from the page header. */
-  .bg-content {
-    margin-top: 0;
-  }
-</style>
+function parseDuration(s: string): number {
+  // Schema validates the format, so the match is always defined.
+  const match = s.match(/^(\d+)h (\d+)m (\d+)s$/)!;
+  return (
+    parseInt(match[1]) * 3600 + parseInt(match[2]) * 60 + parseInt(match[3])
+  );
+}
+
+function formatDuration(totalSeconds: number): string {
+  const h = Math.floor(totalSeconds / 3600);
+  const m = Math.floor((totalSeconds % 3600) / 60);
+  const s = totalSeconds % 60;
+  return `${h}h ${m}m ${s}s`;
+}
+
+const currentYear = new Date().getUTCFullYear();
+const yearHikes = hikes.filter(
+  (h) => h.data.date.getUTCFullYear() === currentYear,
+);
+
+const rollup =
+  yearHikes.length > 0
+    ? {
+        count: yearHikes.length,
+        distance: yearHikes.reduce(
+          (sum, h) => sum + (h.data.distance_miles ?? 0),
+          0,
+        ),
+        elevation: yearHikes.reduce(
+          (sum, h) => sum + (h.data.elevation_gain_feet ?? 0),
+          0,
+        ),
+        duration: yearHikes.reduce(
+          (sum, h) =>
+            sum + (h.data.duration ? parseDuration(h.data.duration) : 0),
+          0,
+        ),
+      }
+    : null;
+---
 
 <BaseLayout title="Hikes">
   <header class="bg-header">
@@ -38,31 +72,68 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   <section class="bg-content">
     <div class="bg-layout-outer">
       <div class="bg-layout-inner">
-        <h1>Hikes</h1>
+        {
+          rollup && (
+            <div class="bg-hike-rollup">
+              <header class="bg-hike-rollup-header">
+                <span class="bg-hike-rollup-year">{currentYear}</span>
+                <span class="bg-hike-rollup-subtitle">So Far</span>
+              </header>
+              <div class="bg-hike-stats">
+                <div class="bg-hike-stat">
+                  <span class="bg-hike-stat-value">{rollup.count}</span>
+                  <span class="bg-hike-stat-label">Hikes</span>
+                </div>
+                <div class="bg-hike-stat">
+                  <span class="bg-hike-stat-value">
+                    {rollup.distance.toFixed(1)} mi
+                  </span>
+                  <span class="bg-hike-stat-label">Distance</span>
+                </div>
+                <div class="bg-hike-stat">
+                  <span class="bg-hike-stat-value">
+                    {numberFormatter.format(rollup.elevation)} ft
+                  </span>
+                  <span class="bg-hike-stat-label">Elevation</span>
+                </div>
+                {rollup.duration > 0 && (
+                  <div class="bg-hike-stat">
+                    <span class="bg-hike-stat-value">
+                      {formatDuration(rollup.duration)}
+                    </span>
+                    <span class="bg-hike-stat-label">Time</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )
+        }
 
-        {hikes.length === 0 ? (
-          <p>No hikes yet. Check back soon.</p>
-        ) : (
-          <ul class="bg-post-list">
-            {hikes.map((hike) => (
-              <li class="bg-post-list-item">
-                <div class="bg-post-list-date">
-                  {dateFormatter.format(hike.data.date)}
-                </div>
-                <div class="bg-post-list-title">
-                  <a href={`/hikes/${hike.id}/`}>{hike.data.title}</a>
-                  {hike.data.tags && hike.data.tags.length > 0 && (
-                    <ul class="bg-post-list-tags">
-                      {hike.data.tags.map((tag) => (
-                        <li class="bg-post-list-tag">{tag}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
+        {
+          hikes.length === 0 ? (
+            <p>No hikes yet. Check back soon.</p>
+          ) : (
+            <ul class="bg-post-list">
+              {hikes.map((hike) => (
+                <li class="bg-post-list-item">
+                  <div class="bg-post-list-date">
+                    {dateFormatter.format(hike.data.date)}
+                  </div>
+                  <div class="bg-post-list-title">
+                    <a href={`/hikes/${hike.id}/`}>{hike.data.title}</a>
+                    {hike.data.tags && hike.data.tags.length > 0 && (
+                      <ul class="bg-post-list-tags">
+                        {hike.data.tags.map((tag) => (
+                          <li class="bg-post-list-tag">{tag}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )
+        }
       </div>
     </div>
   </section>

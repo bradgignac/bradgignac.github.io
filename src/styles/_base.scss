@@ -36,7 +36,7 @@ blockquote {
   font-weight: 300;
   line-height: 1.4;
   color: #666;
-  border-left: 4px solid color-mix(in srgb, $link-color, white 50%);
+  border-left: 4px solid $link-color;
 }
 
 blockquote > p {
