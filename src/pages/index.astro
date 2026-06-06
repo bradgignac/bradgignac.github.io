@@ -1,17 +1,15 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PostList from "../components/PostList.astro";
 
-const posts = (await getCollection("posts")).sort(
+const HOME_POST_LIMIT = 5;
+
+const allPosts = (await getCollection("posts")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
-
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-  timeZone: "UTC",
-});
+const posts = allPosts.slice(0, HOME_POST_LIMIT);
+const hasMore = allPosts.length > posts.length;
 ---
 
 <BaseLayout title="Home">
@@ -39,25 +37,12 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
           posts.length > 0 && (
             <>
               <hr />
-              <ul class="bg-post-list">
-                {posts.map((post) => (
-                  <li class="bg-post-list-item">
-                    <div class="bg-post-list-date">
-                      {dateFormatter.format(post.data.date)}
-                    </div>
-                    <div class="bg-post-list-title">
-                      <a href={`/posts/${post.id}/`}>{post.data.title}</a>
-                      {post.data.tags && post.data.tags.length > 0 && (
-                        <ul class="bg-post-list-tags">
-                          {post.data.tags.map((tag) => (
-                            <li class="bg-post-list-tag">{tag}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <PostList posts={posts} />
+              {hasMore && (
+                <p class="bg-post-list-more">
+                  <a href="/posts/">All posts &rarr;</a>
+                </p>
+              )}
             </>
           )
         }

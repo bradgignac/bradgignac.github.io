@@ -41,6 +41,12 @@
   border-radius: 0.25rem;
 }
 
+.bg-post-list-more {
+  margin: 1rem 0 0;
+  text-align: right;
+  font-size: 0.875rem;
+}
+
 @media (min-width: 380px) {
   .bg-post-list-item {
     display: grid;

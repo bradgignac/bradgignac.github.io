@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PostList from "../../components/PostList.astro";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<style>
+  /* The h1's own top margin provides the gap from the page header. */
+  .bg-content {
+    margin-top: 0;
+  }
+</style>
+
+<BaseLayout title="All Posts">
+  <header class="bg-header">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <div class="bg-header-title">
+          Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
+        </div>
+        <ul class="bg-header-navigation">
+          <li><a href="/">Back to Blog &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-content">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <h1>All Posts</h1>
+        <PostList posts={posts} />
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>
