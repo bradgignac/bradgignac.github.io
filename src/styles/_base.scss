@@ -21,11 +21,14 @@ a:hover {
 
 blockquote {
   margin: 1rem 0;
-  padding: 1rem;
-  font-size: 1.4rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  font-family: $serif-family;
+  font-size: 1.5rem;
   font-style: italic;
-  background-color: rgba(224, 224, 224, 0.25);
-  border-left: 3px solid $border-color;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #666;
+  border-left: 4px solid color-mix(in srgb, $link-color, white 50%);
 }
 
 blockquote > p {
@@ -34,7 +37,7 @@ blockquote > p {
 }
 
 figure {
-  margin: 1em 0;
+  margin: 1rem 0;
 }
 
 figcaption {
@@ -46,8 +49,9 @@ figcaption {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0;
-  font-weight: 200;
+  margin: 1.5em 0 0.5em;
+  font-family: $serif-family;
+  font-weight: 400;
 }
 
 h1 { font-size: 2.0rem; line-height: 2rem; }
