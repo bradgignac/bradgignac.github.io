@@ -1,0 +1,50 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+interface Props {
+  title: string;
+  date: Date;
+}
+
+const { title, date } = Astro.props;
+const formattedDate = date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "UTC",
+});
+---
+
+<BaseLayout title={title}>
+  <header class="bg-header">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <div class="bg-header-title">
+          Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
+        </div>
+        <ul class="bg-header-navigation">
+          <li><a href="/">Back to Blog &raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-content">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <article class="bg-post">
+          <header class="bg-post-header">
+            <div class="bg-post-date">{formattedDate}</div>
+            <h1 class="bg-post-title">{title}</h1>
+          </header>
+          <div class="bg-post-content">
+            <slot />
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>
