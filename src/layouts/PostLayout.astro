@@ -5,9 +5,10 @@ import SiteFooter from "../components/SiteFooter.astro";
 interface Props {
   title: string;
   date: Date;
+  tags?: string[];
 }
 
-const { title, date } = Astro.props;
+const { title, date, tags } = Astro.props;
 const formattedDate = date.toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
@@ -37,6 +38,11 @@ const formattedDate = date.toLocaleDateString("en-US", {
           <header class="bg-post-header">
             <div class="bg-post-date">{formattedDate}</div>
             <h1 class="bg-post-title">{title}</h1>
+            {tags && tags.length > 0 && (
+              <ul class="bg-post-tags">
+                {tags.map((tag) => <li class="bg-post-tag">{tag}</li>)}
+              </ul>
+            )}
           </header>
           <div class="bg-post-content">
             <slot />

@@ -2,6 +2,7 @@
 date: 2014-05-20
 title: Front-End Operations
 tags:
+  - Tech Talk
   - HTML
   - CSS
   - JavaScript

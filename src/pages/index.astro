@@ -47,6 +47,13 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                     </div>
                     <div class="bg-post-list-title">
                       <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+                      {post.data.tags && post.data.tags.length > 0 && (
+                        <ul class="bg-post-list-tags">
+                          {post.data.tags.map((tag) => (
+                            <li class="bg-post-list-tag">{tag}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </li>
                 ))}

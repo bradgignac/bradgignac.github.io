@@ -2,6 +2,7 @@
 date: 2015-02-19
 title: Understanding the Shift to Mobile
 tags:
+  - Tech Talk
   - Mobile
   - Strategy
 ---

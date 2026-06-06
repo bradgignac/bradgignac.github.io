@@ -1,6 +1,10 @@
 ---
 date: 2014-09-24
 title: Avoiding Complexity with Go
+tags:
+  - Go
+  - Simplicity
+  - Software Design
 ---
 
 In ["No Silver Bullet"](http://en.wikipedia.org/wiki/No_Silver_Bullet), Fred 

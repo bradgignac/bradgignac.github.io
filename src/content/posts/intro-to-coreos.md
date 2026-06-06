@@ -2,6 +2,7 @@
 date: 2014-08-12
 title: Intro to CoreOS
 tags:
+  - Tech Talk
   - CoreOS
   - Docker
   - Vulcand
