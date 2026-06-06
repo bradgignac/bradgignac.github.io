@@ -12,9 +12,10 @@ interface Props {
   elevation_gain_feet?: number;
   duration?: string;
   tags?: string[];
+  gear?: string[];
 }
 
-const { title, date, alltrails_url, distance_miles, elevation_gain_feet, duration, tags } = Astro.props;
+const { title, date, alltrails_url, distance_miles, elevation_gain_feet, duration, tags, gear } = Astro.props;
 const formattedDate = date.toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
@@ -61,14 +62,26 @@ if (duration) {
             )}
           </header>
           <AllTrailsEmbed url={alltrails_url} title={title} />
-          {stats.length > 0 && (
-            <div class="bg-hike-stats">
-              {stats.map((stat) => (
-                <div class="bg-hike-stat">
-                  <span class="bg-hike-stat-value">{stat.value}</span>
-                  <span class="bg-hike-stat-label">{stat.label}</span>
+          {(stats.length > 0 || (gear && gear.length > 0)) && (
+            <div class="bg-hike-info">
+              {stats.length > 0 && (
+                <div class="bg-hike-stats">
+                  {stats.map((stat) => (
+                    <div class="bg-hike-stat">
+                      <span class="bg-hike-stat-value">{stat.value}</span>
+                      <span class="bg-hike-stat-label">{stat.label}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
+              {gear && gear.length > 0 && (
+                <section class="bg-hike-gear">
+                  <h2 class="bg-hike-gear-heading">Gear</h2>
+                  <ul class="bg-hike-gear-list">
+                    {gear.map((item) => <li>{item}</li>)}
+                  </ul>
+                </section>
+              )}
             </div>
           )}
           <div class="bg-post-content">
