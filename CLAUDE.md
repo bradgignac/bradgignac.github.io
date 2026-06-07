@@ -51,4 +51,3 @@ Hike-specific styles live in `src/styles/_hikes.scss`, not `_post.scss`.
 
 Open enhancements tracked in auto-memory:
 - Book covers in the reading list ([[project-visual-refresh-ideas]] #7).
-- Hikes section automation (Strava API preferred over AllTrails scraping — see [[project-hikes-automation]]).
