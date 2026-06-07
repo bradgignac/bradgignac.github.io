@@ -1,0 +1,74 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SectionNav from "../components/SectionNav.astro";
+
+interface Props {
+  title: string;
+  author: string;
+  start_date: Date;
+  end_date: Date | null;
+  goodreads_url: string;
+}
+
+const { title, author, start_date, end_date, goodreads_url } = Astro.props;
+
+const fullDateFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const shortDateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+let dateLine: string;
+if (!end_date) {
+  dateLine = `Started ${fullDateFormatter.format(start_date)}`;
+} else if (start_date.getUTCFullYear() === end_date.getUTCFullYear()) {
+  dateLine = `${shortDateFormatter.format(start_date)} – ${fullDateFormatter.format(end_date)}`;
+} else {
+  dateLine = `${fullDateFormatter.format(start_date)} – ${fullDateFormatter.format(end_date)}`;
+}
+---
+
+<BaseLayout title={title}>
+  <header class="bg-header">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <div class="bg-header-title">
+          Hello, my name is <a href="/"><strong>Brad Gignac</strong></a>.
+        </div>
+        <SectionNav />
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-content">
+    <div class="bg-layout-outer">
+      <div class="bg-layout-inner">
+        <article class="bg-post">
+          <header class="bg-post-header">
+            <div class="bg-post-date">{dateLine}</div>
+            <h1 class="bg-post-title">{title}</h1>
+            <div class="bg-book-byline">by {author}</div>
+          </header>
+          <div class="bg-post-content">
+            <slot />
+          </div>
+          <p class="bg-book-cta">
+            <a href={goodreads_url} target="_blank" rel="noopener">
+              View on Goodreads &rarr;
+            </a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>

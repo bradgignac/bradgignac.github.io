@@ -64,10 +64,7 @@ for (const [, list] of sortedGroups) {
             <ul class="bg-reading-list-group">
               {list.map((book) => (
                 <li class="bg-reading-list-group-item">
-                  <a href={book.data.link} target="_blank" rel="noopener">{book.data.title}</a>, by {book.data.author}
-                  {book.data.notes && (
-                    <small class="bg-reading-list-group-item-desc">{book.data.notes}</small>
-                  )}
+                  <a href={`/reading-list/${book.id}/`}>{book.data.title}</a>, by {book.data.author}
                 </li>
               ))}
             </ul>

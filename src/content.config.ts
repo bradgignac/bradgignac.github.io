@@ -17,8 +17,7 @@ const books = defineCollection({
     author: z.string(),
     start_date: z.date(),
     end_date: z.date().nullable(),
-    link: z.url(),
-    notes: z.string().nullable().optional(),
+    goodreads_url: z.url(),
   }),
 });
 

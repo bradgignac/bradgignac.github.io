@@ -29,7 +29,7 @@ const items: FeedItem[] = [
     type: "Book" as const,
     date: b.data.end_date ?? b.data.start_date,
     title: `${b.data.title} — ${b.data.author}`,
-    url: b.data.link,
+    url: `/reading-list/${b.id}/`,
   })),
 ];
 
