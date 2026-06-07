@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint:spell": "cspell --no-progress"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
@@ -16,5 +17,8 @@
     "@fontsource-variable/newsreader": "^5.2.10",
     "astro": "^6.4.4",
     "sass": "1.100.0"
+  },
+  "devDependencies": {
+    "cspell": "^10.0.1"
   }
 }
