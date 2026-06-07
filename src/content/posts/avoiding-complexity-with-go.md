@@ -97,7 +97,7 @@ an app server such as uWSGI, Unicorn, or Tomcat to serve your application. You
 don't need to understand the finer details of Rack or WSGI. You've eliminated 
 one small layer of overhead from your application.
 
-Second, Go applications compile to a binary, and all run-time depedencies are 
+Second, Go applications compile to a binary, and all run-time dependencies are 
 compiled into the binary. If self-hosting was a small departure from the 
 complexities of Ruby and Python, binary distributions are a whole different 
 world. You've eliminated the need for a language runtime, package manager, 

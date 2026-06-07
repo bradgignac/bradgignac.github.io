@@ -1,0 +1,62 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "files": [
+    "src/content/**/*.md",
+    "README.md",
+    "CLAUDE.md"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    ".astro",
+    "public"
+  ],
+  "ignoreRegExpList": [
+    "/https?:\\/\\/[^\\s)]+/",
+    "/`[^`]+`/"
+  ],
+  "words": [
+    "AllTrails",
+    "alltrails",
+    "Astro",
+    "astro",
+    "bradgignac",
+    "CoreOS",
+    "Crowders",
+    "Discworld",
+    "favicon",
+    "fontsource",
+    "frontmatter",
+    "Gignac",
+    "Helvetica",
+    "Jekyll",
+    "kramdown",
+    "Larsson",
+    "Mailgun",
+    "monokai",
+    "Nalgene",
+    "Narnia",
+    "Newsreader",
+    "Osprey",
+    "Pinnacle",
+    "Pratchett",
+    "ProsperOps",
+    "rbenv",
+    "Roanoke",
+    "Shiki",
+    "SpeakerDeck",
+    "Stieg",
+    "Strava",
+    "Tolkien",
+    "Turnback",
+    "Vitesse",
+    "Vulcand",
+    "Cagan",
+    "Neue",
+    "nspawn",
+    "SPDY",
+    "Sportlite",
+    "WSGI"
+  ]
+}

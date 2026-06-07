@@ -50,13 +50,13 @@ print 'Body:   {0}'.format(request.text)
 
 If you run the Python script from your terminal, you'll receive an email in just
 a few minutes. This only scratches the surface of what the Mailgun API provides.
-For more information, check out the [Messages](http://documentation.mailgun.com/api-sending.html)
+For more information, check out the [Messages](https://web.archive.org/web/2014/http://documentation.mailgun.com/api-sending.html)
 section of the Mailgun API.
 
 ## Tracking Email Delivery
 
 We're successfully sending emails, so let's see if they are actually being
-delivered. Mailgun provides the [Events API](http://documentation.mailgun.com/api-events.html)
+delivered. Mailgun provides the [Events API](https://web.archive.org/web/2014/http://documentation.mailgun.com/api-events.html)
 for exactly this purpose.
 
 <figcaption>list-events.py</figcaption>
@@ -76,9 +76,9 @@ print 'Body:   {0}'.format(request.text)
 
 Run the Python script from your terminal, and you'll see the last five events
 that your emails have generated as they move through the system. In addition to
-exploring events through the API, visit the [Tracking](https://mailgun.com/cp/stats)
+exploring events through the API, visit the Tracking
 section of the control panel. To learn more about events, check out the section
-on [Tracking Messages](http://documentation.mailgun.com/user_manual.html#tracking-messages)
+on [Tracking Messages](https://web.archive.org/web/2014/http://documentation.mailgun.com/user_manual.html#tracking-messages)
 in Mailgun's documentation.
 
 ## Next Steps

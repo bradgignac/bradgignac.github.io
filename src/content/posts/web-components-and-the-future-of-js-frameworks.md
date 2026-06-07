@@ -8,7 +8,7 @@ tags:
 ---
 
 ***Edit:** This talk was originally given at Rackspace on February 21, 2014. I
-presented an updated version of the talk at [Roanoke Code Camp](http://roanokecodecamp.org/)
+presented an updated version of the talk at [Roanoke Code Camp](https://web.archive.org/web/2014/http://roanokecodecamp.org/)
 on May 17, 2014, and I have updated the slides on this page to reflect the version
 presented at Roanoke Code Camp.*
 
