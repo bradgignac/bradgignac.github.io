@@ -82,18 +82,14 @@ pre {
 
 .bg-post-content ul,
 .bg-hike-gear-list {
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   padding: 0;
   list-style: none;
 
   > li {
     position: relative;
     padding-left: 1.25rem;
-    margin: 0 0 0.4rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin: 0;
 
     &::before {
       content: "›";
