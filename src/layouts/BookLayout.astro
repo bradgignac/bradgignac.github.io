@@ -58,16 +58,15 @@ if (!end_date) {
           <header class="bg-post-header">
             <div class="bg-post-date">{dateLine}</div>
             <h1 class="bg-post-title">{title}</h1>
-            <div class="bg-book-byline">by {author}</div>
+            <div class="bg-book-byline">
+              by {author}
+              <span class="bg-book-byline-sep">&middot;</span>
+              <a href={goodreads_url} target="_blank" rel="noopener">View on Goodreads &rarr;</a>
+            </div>
           </header>
           <div class="bg-post-content">
             <slot />
           </div>
-          <p class="bg-book-cta">
-            <a href={goodreads_url} target="_blank" rel="noopener">
-              View on Goodreads &rarr;
-            </a>
-          </p>
           {(prev || next) && (
             <nav class="bg-post-nav">
               {prev && (
