@@ -28,4 +28,14 @@ Walk Brad through adding a new book to the reading list. Steps:
    ---
    ```
    Body empty.
-6. **Report** the absolute path. Ask Brad to commit / push / PR when satisfied.
+6. **Install deps and start the dev server** in the new worktree so Brad can preview the reading list with HMR:
+   - `npm install --prefix <worktree>` (run in background, wait for it to finish)
+   - `npm run dev --prefix <worktree> -- --host 127.0.0.1 --port 4321` (run in background)
+   - Wait until the server responds at <http://localhost:4321/reading-list/>, then share the URL.
+7. **Report** the absolute path and the dev URL. Ask Brad to commit / push / PR when satisfied.
+
+### Before committing
+When Brad asks you to commit / push / PR, run `npx cspell --no-progress` first. If it fails:
+- If the flagged word is a real typo, fix it.
+- If it's a legitimate proper noun (book title, author, etc.), add it to `.cspell.json`.
+Only commit once cspell is clean.

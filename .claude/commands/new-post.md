@@ -21,4 +21,14 @@ Walk Brad through starting a new blog post. Steps:
    ---
    ```
    Omit the `tags:` key entirely if Brad gave no tags. Leave the body empty (no placeholder text).
-6. **Report** the absolute file path and tell Brad to write the post body. He should ask you to commit / push / PR when he's ready to ship.
+6. **Install deps and start the dev server** in the new worktree so Brad can see HMR previews while he writes:
+   - `npm install --prefix <worktree>` (run in background, wait for it to finish)
+   - `npm run dev --prefix <worktree> -- --host 127.0.0.1 --port 4321` (run in background)
+   - Wait until the server responds at <http://localhost:4321/>, then share the URL.
+7. **Report** the absolute file path and the dev URL. Tell Brad to write the post body and ask you to commit / push / PR when he's ready.
+
+### Before committing
+When Brad asks you to commit / push / PR, run `npx cspell --no-progress` first. If it fails:
+- If the flagged word is a real typo, fix it in the post.
+- If it's a legitimate proper noun, add it to `.cspell.json`.
+Only commit once cspell is clean.
