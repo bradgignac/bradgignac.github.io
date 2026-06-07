@@ -47,6 +47,64 @@
   font-size: 0.875rem;
 }
 
+.bg-feed-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bg-feed-group {
+  margin: 0 0 1.5rem;
+}
+
+.bg-feed-group:last-child {
+  margin-bottom: 0;
+}
+
+.bg-feed-group-month {
+  margin: 0 0 0.5rem;
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bg-feed-group-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bg-feed-item {
+  margin: 0 0 0.5rem;
+}
+
+.bg-feed-item:last-child {
+  margin-bottom: 0;
+}
+
+.bg-feed-item-date {
+  margin-left: 0.4rem;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 380px) {
+  .bg-feed-group {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 0 $gutter;
+    align-items: baseline;
+  }
+
+  .bg-feed-group-month {
+    margin: 0;
+    text-align: right;
+  }
+}
+
 // Scroll progress indicator — a thin rust bar across the top of
 // the viewport that fills as the reader scrolls through a post.
 // Uses CSS scroll-driven animations; gracefully degrades to a

@@ -1,16 +1,39 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PostList from "../components/PostList.astro";
+import FeedList, { type FeedItem } from "../components/FeedList.astro";
 import SectionNav from "../components/SectionNav.astro";
 
-const HOME_POST_LIMIT = 5;
+const [posts, hikes, books] = await Promise.all([
+  getCollection("posts"),
+  getCollection("hikes"),
+  getCollection("books"),
+]);
 
-const allPosts = (await getCollection("posts")).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-);
-const posts = allPosts.slice(0, HOME_POST_LIMIT);
-const hasMore = allPosts.length > posts.length;
+const items: FeedItem[] = [
+  ...posts.map((p) => ({
+    type: "Blog" as const,
+    date: p.data.date,
+    title: p.data.title,
+    url: `/posts/${p.id}/`,
+    tags: p.data.tags,
+  })),
+  ...hikes.map((h) => ({
+    type: "Hike" as const,
+    date: h.data.date,
+    title: h.data.title,
+    url: `/hikes/${h.id}/`,
+    tags: h.data.tags,
+  })),
+  ...books.map((b) => ({
+    type: "Book" as const,
+    date: b.data.end_date ?? b.data.start_date,
+    title: `${b.data.title} — ${b.data.author}`,
+    url: b.data.link,
+  })),
+];
+
+items.sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <BaseLayout title="Home">
@@ -37,15 +60,10 @@ const hasMore = allPosts.length > posts.length;
         <SectionNav showLabel />
 
         {
-          posts.length > 0 && (
+          items.length > 0 && (
             <>
               <hr />
-              <PostList posts={posts} />
-              {hasMore && (
-                <p class="bg-post-list-more">
-                  <a href="/posts/">All posts &rarr;</a>
-                </p>
-              )}
+              <FeedList items={items} />
             </>
           )
         }

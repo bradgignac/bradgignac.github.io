@@ -2,12 +2,20 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
-import PostList from "../../components/PostList.astro";
+import FeedList, { type FeedItem } from "../../components/FeedList.astro";
 import SectionNav from "../../components/SectionNav.astro";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
+
+const items: FeedItem[] = posts.map((p) => ({
+  type: "Blog" as const,
+  date: p.data.date,
+  title: p.data.title,
+  url: `/posts/${p.id}/`,
+  tags: p.data.tags,
+}));
 ---
 
 <style>
@@ -33,7 +41,7 @@ const posts = (await getCollection("posts")).sort(
     <div class="bg-layout-outer">
       <div class="bg-layout-inner">
         <h1>All Posts</h1>
-        <PostList posts={posts} />
+        <FeedList items={items} />
       </div>
     </div>
   </section>

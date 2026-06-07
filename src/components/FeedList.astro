@@ -1,0 +1,63 @@
+---
+export interface FeedItem {
+  type: "Blog" | "Hike" | "Book";
+  date: Date;
+  title: string;
+  url: string;
+  tags?: string[];
+}
+
+interface Props {
+  items: FeedItem[];
+}
+
+const { items } = Astro.props;
+
+const monthFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  timeZone: "UTC",
+});
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const groups: Array<{ key: string; items: FeedItem[] }> = [];
+for (const item of items) {
+  const key = monthFormatter.format(item.date);
+  const last = groups[groups.length - 1];
+  if (last && last.key === key) {
+    last.items.push(item);
+  } else {
+    groups.push({ key, items: [item] });
+  }
+}
+---
+
+<ul class="bg-feed-list">
+  {groups.map((group) => (
+    <li class="bg-feed-group">
+      <div class="bg-feed-group-month">{group.key}</div>
+      <ul class="bg-feed-group-items">
+        {group.items.map((item) => (
+          <li class="bg-feed-item">
+            <a href={item.url}>{item.title}</a>
+            <span class="bg-feed-item-date">
+              {dateFormatter.format(item.date)}
+            </span>
+            {item.tags && item.tags.length > 0 && (
+              <ul class="bg-post-list-tags">
+                {item.tags.map((tag) => (
+                  <li class="bg-post-list-tag">{tag}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ul>
