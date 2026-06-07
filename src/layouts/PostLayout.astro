@@ -1,15 +1,15 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SectionNav from "../components/SectionNav.astro";
+import type { FeedNavItem } from "../utils/feed";
 
 interface Props {
   title: string;
   date: Date;
   tags?: string[];
-  prev?: CollectionEntry<"posts"> | null;
-  next?: CollectionEntry<"posts"> | null;
+  prev?: FeedNavItem | null;
+  next?: FeedNavItem | null;
 }
 
 const { title, date, tags, prev, next } = Astro.props;
@@ -53,18 +53,18 @@ const formattedDate = date.toLocaleDateString("en-US", {
           {(prev || next) && (
             <nav class="bg-post-nav">
               {prev && (
-                <a href={`/posts/${prev.id}/`} class="bg-post-nav-link">
+                <a href={prev.url} class="bg-post-nav-link">
                   <span class="bg-post-nav-label">&larr; Previous</span>
-                  <span class="bg-post-nav-title">{prev.data.title}</span>
+                  <span class="bg-post-nav-title">{prev.title}</span>
                 </a>
               )}
               {next && (
                 <a
-                  href={`/posts/${next.id}/`}
+                  href={next.url}
                   class="bg-post-nav-link bg-post-nav-next"
                 >
                   <span class="bg-post-nav-label">Next &rarr;</span>
-                  <span class="bg-post-nav-title">{next.data.title}</span>
+                  <span class="bg-post-nav-title">{next.title}</span>
                 </a>
               )}
             </nav>

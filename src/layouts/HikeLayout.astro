@@ -3,6 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SectionNav from "../components/SectionNav.astro";
 import AllTrailsEmbed from "../components/AllTrailsEmbed.astro";
+import type { FeedNavItem } from "../utils/feed";
 
 interface Props {
   title: string;
@@ -13,9 +14,11 @@ interface Props {
   duration?: string;
   tags?: string[];
   gear?: string[];
+  prev?: FeedNavItem | null;
+  next?: FeedNavItem | null;
 }
 
-const { title, date, alltrails_url, distance_miles, elevation_gain_feet, duration, tags, gear } = Astro.props;
+const { title, date, alltrails_url, distance_miles, elevation_gain_feet, duration, tags, gear, prev, next } = Astro.props;
 const formattedDate = date.toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
@@ -87,6 +90,25 @@ if (duration) {
           <div class="bg-post-content">
             <slot />
           </div>
+          {(prev || next) && (
+            <nav class="bg-post-nav">
+              {prev && (
+                <a href={prev.url} class="bg-post-nav-link">
+                  <span class="bg-post-nav-label">&larr; Previous</span>
+                  <span class="bg-post-nav-title">{prev.title}</span>
+                </a>
+              )}
+              {next && (
+                <a
+                  href={next.url}
+                  class="bg-post-nav-link bg-post-nav-next"
+                >
+                  <span class="bg-post-nav-label">Next &rarr;</span>
+                  <span class="bg-post-nav-title">{next.title}</span>
+                </a>
+              )}
+            </nav>
+          )}
         </article>
       </div>
     </div>

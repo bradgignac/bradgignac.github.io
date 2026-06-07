@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SectionNav from "../components/SectionNav.astro";
+import type { FeedNavItem } from "../utils/feed";
 
 interface Props {
   title: string;
@@ -9,9 +10,11 @@ interface Props {
   start_date: Date;
   end_date: Date | null;
   goodreads_url: string;
+  prev?: FeedNavItem | null;
+  next?: FeedNavItem | null;
 }
 
-const { title, author, start_date, end_date, goodreads_url } = Astro.props;
+const { title, author, start_date, end_date, goodreads_url, prev, next } = Astro.props;
 
 const fullDateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
@@ -65,6 +68,25 @@ if (!end_date) {
               View on Goodreads &rarr;
             </a>
           </p>
+          {(prev || next) && (
+            <nav class="bg-post-nav">
+              {prev && (
+                <a href={prev.url} class="bg-post-nav-link">
+                  <span class="bg-post-nav-label">&larr; Previous</span>
+                  <span class="bg-post-nav-title">{prev.title}</span>
+                </a>
+              )}
+              {next && (
+                <a
+                  href={next.url}
+                  class="bg-post-nav-link bg-post-nav-next"
+                >
+                  <span class="bg-post-nav-label">Next &rarr;</span>
+                  <span class="bg-post-nav-title">{next.title}</span>
+                </a>
+              )}
+            </nav>
+          )}
         </article>
       </div>
     </div>

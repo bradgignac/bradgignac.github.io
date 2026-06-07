@@ -1,17 +1,18 @@
 ---
 import { getCollection, render } from "astro:content";
 import PostLayout from "../../layouts/PostLayout.astro";
+import { getFeedItems, getNeighbors } from "../../utils/feed";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("posts")).sort(
-    (a, b) => a.data.date.getTime() - b.data.date.getTime(),
-  );
-  return posts.map((post, i) => ({
+  const [posts, feedItems] = await Promise.all([
+    getCollection("posts"),
+    getFeedItems(),
+  ]);
+  return posts.map((post) => ({
     params: { slug: post.id },
     props: {
       post,
-      prev: i > 0 ? posts[i - 1] : null,
-      next: i < posts.length - 1 ? posts[i + 1] : null,
+      ...getNeighbors(feedItems, "post", post.id),
     },
   }));
 }
