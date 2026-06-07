@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from "astro:content";
+import BookLayout from "../../layouts/BookLayout.astro";
+import { getFeedItems, getNeighbors } from "../../utils/feed";
+
+export async function getStaticPaths() {
+  const [books, feedItems] = await Promise.all([
+    getCollection("books"),
+    getFeedItems(),
+  ]);
+  return books.map((book) => ({
+    params: { slug: book.id },
+    props: {
+      book,
+      ...getNeighbors(feedItems, "book", book.id),
+    },
+  }));
+}
+
+const { book, prev, next } = Astro.props;
+const { Content } = await render(book);
+---
+
+<BookLayout
+  title={book.data.title}
+  author={book.data.author}
+  start_date={book.data.start_date}
+  end_date={book.data.end_date}
+  goodreads_url={book.data.goodreads_url}
+  prev={prev}
+  next={next}
+>
+  <Content />
+</BookLayout>

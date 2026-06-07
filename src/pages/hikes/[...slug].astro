@@ -1,16 +1,23 @@
 ---
 import { getCollection, render } from "astro:content";
 import HikeLayout from "../../layouts/HikeLayout.astro";
+import { getFeedItems, getNeighbors } from "../../utils/feed";
 
 export async function getStaticPaths() {
-  const hikes = await getCollection("hikes");
+  const [hikes, feedItems] = await Promise.all([
+    getCollection("hikes"),
+    getFeedItems(),
+  ]);
   return hikes.map((hike) => ({
     params: { slug: hike.id },
-    props: { hike },
+    props: {
+      hike,
+      ...getNeighbors(feedItems, "hike", hike.id),
+    },
   }));
 }
 
-const { hike } = Astro.props;
+const { hike, prev, next } = Astro.props;
 const { Content } = await render(hike);
 ---
 
@@ -23,6 +30,8 @@ const { Content } = await render(hike);
   duration={hike.data.duration}
   tags={hike.data.tags}
   gear={hike.data.gear}
+  prev={prev}
+  next={next}
 >
   <Content />
 </HikeLayout>

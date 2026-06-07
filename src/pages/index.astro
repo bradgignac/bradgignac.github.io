@@ -1,39 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FeedList, { type FeedItem } from "../components/FeedList.astro";
+import FeedList from "../components/FeedList.astro";
 import SectionNav from "../components/SectionNav.astro";
+import { getFeedItems } from "../utils/feed";
 
-const [posts, hikes, books] = await Promise.all([
-  getCollection("posts"),
-  getCollection("hikes"),
-  getCollection("books"),
-]);
-
-const items: FeedItem[] = [
-  ...posts.map((p) => ({
-    type: "Blog" as const,
-    date: p.data.date,
-    title: p.data.title,
-    url: `/posts/${p.id}/`,
-    tags: p.data.tags,
-  })),
-  ...hikes.map((h) => ({
-    type: "Hike" as const,
-    date: h.data.date,
-    title: h.data.title,
-    url: `/hikes/${h.id}/`,
-    tags: h.data.tags,
-  })),
-  ...books.map((b) => ({
-    type: "Book" as const,
-    date: b.data.end_date ?? b.data.start_date,
-    title: `${b.data.title} — ${b.data.author}`,
-    url: b.data.link,
-  })),
-];
-
-items.sort((a, b) => b.date.getTime() - a.date.getTime());
+const items = await getFeedItems();
 ---
 
 <BaseLayout title="Home">

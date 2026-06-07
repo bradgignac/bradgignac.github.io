@@ -6,23 +6,40 @@ import type { FeedNavItem } from "../utils/feed";
 
 interface Props {
   title: string;
-  date: Date;
-  tags?: string[];
+  author: string;
+  start_date: Date;
+  end_date: Date | null;
+  goodreads_url: string;
   prev?: FeedNavItem | null;
   next?: FeedNavItem | null;
 }
 
-const { title, date, tags, prev, next } = Astro.props;
-const formattedDate = date.toLocaleDateString("en-US", {
+const { title, author, start_date, end_date, goodreads_url, prev, next } = Astro.props;
+
+const fullDateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   month: "long",
   day: "numeric",
   timeZone: "UTC",
 });
+
+const shortDateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+let dateLine: string;
+if (!end_date) {
+  dateLine = `Started ${fullDateFormatter.format(start_date)}`;
+} else if (start_date.getUTCFullYear() === end_date.getUTCFullYear()) {
+  dateLine = `${shortDateFormatter.format(start_date)} – ${fullDateFormatter.format(end_date)}`;
+} else {
+  dateLine = `${fullDateFormatter.format(start_date)} – ${fullDateFormatter.format(end_date)}`;
+}
 ---
 
 <BaseLayout title={title}>
-  <div class="bg-progress-bar" aria-hidden="true"></div>
   <header class="bg-header">
     <div class="bg-layout-outer">
       <div class="bg-layout-inner">
@@ -39,13 +56,13 @@ const formattedDate = date.toLocaleDateString("en-US", {
       <div class="bg-layout-inner">
         <article class="bg-post">
           <header class="bg-post-header">
-            <div class="bg-post-date">{formattedDate}</div>
+            <div class="bg-post-date">{dateLine}</div>
             <h1 class="bg-post-title">{title}</h1>
-            {tags && tags.length > 0 && (
-              <ul class="bg-post-tags">
-                {tags.map((tag) => <li class="bg-post-tag">{tag}</li>)}
-              </ul>
-            )}
+            <div class="bg-book-byline">
+              by {author}
+              <span class="bg-book-byline-sep">&middot;</span>
+              <a href={goodreads_url} target="_blank" rel="noopener">View on Goodreads &rarr;</a>
+            </div>
           </header>
           <div class="bg-post-content">
             <slot />

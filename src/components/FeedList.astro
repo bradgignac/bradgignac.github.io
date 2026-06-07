@@ -1,11 +1,5 @@
 ---
-export interface FeedItem {
-  type: "Blog" | "Hike" | "Book";
-  date: Date;
-  title: string;
-  url: string;
-  tags?: string[];
-}
+import type { FeedItem } from "../utils/feed";
 
 interface Props {
   items: FeedItem[];
