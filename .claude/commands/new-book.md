@@ -11,7 +11,7 @@ Walk Brad through adding a new book to the reading list. Steps:
    - End date in YYYY-MM-DD, OR "currently reading" to leave it null
    - Goodreads URL (required) — the book layout links specifically to Goodreads
    - Notes (optional one-liner) — rendered as the post body
-2. **Slug** the title: lowercase with **underscores instead of spaces/hyphens** — this matches the existing snake_case convention in `src/content/books/` (e.g., `the_color_of_magic.md`, `the_horse_and_his_boy.md`). Drop punctuation entirely.
+2. **Slug** the title: lowercase with hyphens between words (e.g., `the-color-of-magic.md`, `the-horse-and-his-boy.md`). Drop punctuation entirely.
 3. **Abort** if `src/content/books/<slug>.md` already exists in the main checkout.
 4. **Create the worktree** per the global git conventions:
    - `git -C /Users/brad.gignac/work/bradgignac/bradgignac.github.io worktree add /Users/brad.gignac/work/bradgignac/<slug> -b bradgignac/<slug> main`
