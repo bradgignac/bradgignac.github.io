@@ -9,9 +9,9 @@ Walk Brad through adding a new book to the reading list. Steps:
    - Author (required)
    - Start date in YYYY-MM-DD (default today)
    - End date in YYYY-MM-DD, OR "currently reading" to leave it null
-   - Link — Amazon, publisher, library URL, etc. (required)
-   - Notes (optional one-liner)
-2. **Slug** the title: lowercase with **underscores instead of spaces/hyphens** — this matches the existing snake_case convention in `src/content/books/` (e.g., `the_color_of_magic.md`, `the_horse_and_his_boy.md`). Drop punctuation entirely.
+   - Goodreads URL (required) — the book layout links specifically to Goodreads
+   - Notes (optional one-liner) — rendered as the post body
+2. **Slug** the title: lowercase with hyphens between words (e.g., `the-color-of-magic.md`, `the-horse-and-his-boy.md`). Drop punctuation entirely.
 3. **Abort** if `src/content/books/<slug>.md` already exists in the main checkout.
 4. **Create the worktree** per the global git conventions:
    - `git -C /Users/brad.gignac/work/bradgignac/bradgignac.github.io worktree add /Users/brad.gignac/work/bradgignac/<slug> -b bradgignac/<slug> main`
@@ -23,11 +23,11 @@ Walk Brad through adding a new book to the reading list. Steps:
    author: <author>
    start_date: <YYYY-MM-DD>
    end_date: <YYYY-MM-DD or ~ for currently reading>
-   link: <url>
-   notes: <notes line>   # omit entirely if not provided
+   goodreads_url: <url>
    ---
+
+   <notes line>   # omit entirely if not provided
    ```
-   Body empty.
 6. **Install deps and start the dev server** in the new worktree so Brad can preview the reading list with HMR:
    - `npm install --prefix <worktree>` (run in background, wait for it to finish)
    - `npm run dev --prefix <worktree> -- --host 127.0.0.1 --port 4321` (run in background)
