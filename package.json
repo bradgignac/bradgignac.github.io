@@ -15,7 +15,7 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/newsreader": "^5.2.10",
-    "astro": "^6.4.4",
+    "astro": "^6.4.6",
     "sass": "1.100.0"
   },
   "devDependencies": {
