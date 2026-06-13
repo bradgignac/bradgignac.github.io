@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/newsreader": "^5.2.10",
     "astro": "^6.4.4",
-    "sass": "1.100.0"
+    "sass": "1.101.0"
   },
   "devDependencies": {
     "cspell": "^10.0.1"
