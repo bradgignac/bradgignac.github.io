@@ -12,7 +12,7 @@
     "lint:spell": "cspell --no-progress"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/newsreader": "^5.2.10",
     "astro": "^6.4.8",
